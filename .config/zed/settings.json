@@ -1,0 +1,62 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "disable_ai": false,
+  "language_models": {},
+  "when_closing_with_no_tabs": "platform_default",
+  "terminal": {
+    "font_size": 12.0,
+    "font_family": "Roboto Mono for Powerline",
+    "blinking": "on",
+    "button": true
+  },
+  "tabs": {
+    "git_status": true
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "format_on_save": "on",
+  "formatter": "prettier",
+  "prettier": {
+    "allowed": true,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "semi": false,
+    "jsxSingleQuote": true,
+    "singleQuote": true
+  },
+  "base_keymap": "VSCode",
+  "confirm_quit": true,
+  "agent": {
+    "default_profile": "write",
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.5-pro"
+    },
+    "model_parameters": []
+  },
+  "auto_update": false,
+  "agent_ui_font_size": 16.0,
+  "ui_font_family": ".ZedSans",
+  "outline_panel": {
+    "dock": "right",
+    "indent_size": 20.0
+  },
+  "icon_theme": "Catppuccin Latte",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 15.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Alabaster Dark"
+  }
+  // "proxy": "http://127.0.0.1:7899"
+}
