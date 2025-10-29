@@ -70,8 +70,8 @@
   "agent": {
     "default_profile": "write",
     "default_model": {
-      "provider": "Qwen",
-      "model": "qwen3-coder-30b-a3b-instruct"
+      "provider": "google",
+      "model": "gemini-2.5-pro"
     },
     "model_parameters": []
   },
