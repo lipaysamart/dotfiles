@@ -8,19 +8,53 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "disable_ai": false,
-  "language_models": {},
-  "when_closing_with_no_tabs": "platform_default",
-  "terminal": {
-    "font_size": 12.0,
-    "font_family": "Roboto Mono for Powerline",
-    "blinking": "on",
-    "button": true
+  "language_models": {
+    "openai_compatible": {
+      "Qwen": {
+        "api_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "available_models": [
+          {
+            "name": "qwen3-coder-30b-a3b-instruct",
+            "max_tokens": 256000,
+            "max_output_tokens": 64000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": false,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false
+            }
+          },
+          {
+            "name": "deepseek-v3.2-exp",
+            "max_tokens": 128000,
+            "max_output_tokens": 64000,
+            "max_completion_tokens": 96000,
+            "capabilities": {
+              "tools": false,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false
+            }
+          },
+          {
+            "name": "qwen3-coder-480b-a35b-instruct",
+            "max_tokens": 256000,
+            "max_output_tokens": 64000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false
+            }
+          }
+        ]
+      }
+    }
   },
   "tabs": {
     "git_status": true
-  },
-  "collaboration_panel": {
-    "button": false
   },
   "format_on_save": "on",
   "formatter": "prettier",
@@ -33,21 +67,13 @@
     "singleQuote": true
   },
   "base_keymap": "VSCode",
-  "confirm_quit": true,
   "agent": {
     "default_profile": "write",
     "default_model": {
-      "provider": "google",
-      "model": "gemini-2.5-pro"
+      "provider": "Qwen",
+      "model": "qwen3-coder-30b-a3b-instruct"
     },
     "model_parameters": []
-  },
-  "auto_update": false,
-  "agent_ui_font_size": 16.0,
-  "ui_font_family": ".ZedSans",
-  "outline_panel": {
-    "dock": "right",
-    "indent_size": 20.0
   },
   "icon_theme": "Catppuccin Latte",
   "vim_mode": true,
@@ -58,5 +84,4 @@
     "light": "One Light",
     "dark": "Alabaster Dark"
   }
-  // "proxy": "http://127.0.0.1:7899"
 }
