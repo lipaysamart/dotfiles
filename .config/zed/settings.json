@@ -54,8 +54,22 @@
     }
   },
   "tabs": {
-    "git_status": true
+    // https://zed.dev/docs/configuring-zed#editor-tabs
+    "file_icons": true,
+    "git_status": true,
+    "activate_on_close": "history",
+    "show_close_button": "hover",
+    "show_diagnostics": "all"
   },
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    "diagnostics": "all"
+  },
+  "vertical_scroll_margin": 5,
   "format_on_save": "on",
   "formatter": "prettier",
   "prettier": {
@@ -66,6 +80,13 @@
     "jsxSingleQuote": true,
     "singleQuote": true
   },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "line_width": 1,
+    "active_line_width": 1,
+    "background_coloring": "indent_aware"
+  },
   "base_keymap": "VSCode",
   "agent": {
     "default_profile": "write",
@@ -73,15 +94,42 @@
       "provider": "google",
       "model": "gemini-2.5-pro"
     },
-    "model_parameters": []
+    "button": true,
+    "dock": "right",
+    "default_width": 640,
+    "default_height": 640
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true
+  },
+  "terminal": {
+    "dock": "bottom",
+    "font_size": 14,
+    "default_height": 320,
+    "default_width": 320,
+    "keep_selection_on_copy": false,
+    "working_directory": "current_project_directory",
+    "blinking": "terminal_controlled",
+    "copy_on_select": true,
+    "cursor_shape": "block"
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
   },
   "icon_theme": "Catppuccin Latte",
   "vim_mode": true,
+  "tab_size": 2,
+  "preferred_line_length": 80,
+  "soft_wrap": "editor_width",
   "ui_font_size": 16,
   "buffer_font_size": 15.0,
   "theme": {
-    "mode": "dark",
-    "light": "One Light",
+    "mode": "system",
+    "light": "Alabaster Dark",
     "dark": "Alabaster Dark"
   }
 }
