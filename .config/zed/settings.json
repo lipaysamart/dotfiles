@@ -92,7 +92,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "google",
-      "model": "gemini-2.5-pro"
+      "model": "gemini-2.5-flash"
     },
     "button": true,
     "dock": "right",
