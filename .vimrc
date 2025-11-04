@@ -1,1 +1,1 @@
-inoremap jk <esc>
+.vimrc##os.Darwin

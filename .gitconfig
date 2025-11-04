@@ -21,9 +21,6 @@
 	whitespace = fix
 [http]
 	postBuffer = 157286400
-	proxy = http://127.0.0.1:7897
-[https]
-	proxy = http://127.0.0.1:7899
 
 [pull]
 		rebase = true
