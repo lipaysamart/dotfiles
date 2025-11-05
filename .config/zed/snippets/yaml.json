@@ -1,0 +1,43 @@
+{
+  "k8s tolerations": {
+    "prefix": "tolerations",
+    "description": "Configure pod tolerations",
+    "body": [
+      "tolerations:",
+      "- key: ack-pool-name",
+      "  operator: Equal",
+      "  value:",
+      "   - ${1:prd}",
+      "    $0"
+    ]
+  },
+  "k8s affinity": {
+    "prefix": "affinity",
+    "description": "Configure pod affinity",
+    "body": [
+      "affinity:",
+      "  nodeAffinity:",
+      "    requiredDuringSchedulingIgnoredDuringExecution:",
+      "      nodeSelectorTerms:",
+      "        - matchExpressions:",
+      "            - key: ${1:ack-pool-name}",
+      "              operator: In",
+      "              values:",
+      "                - ${2:prd}",
+      "                $0"
+    ]
+  },
+  "docker compose": {
+    "prefix": "compose",
+    "description": "Configure compose base file",
+    "body": [
+      "services:",
+      "  ${1:main}:",
+      "    image: ${2:image}",
+      "    ports:",
+      "      - ${3:8899:$3",
+      "    restart: unless-stopped",
+      "  $0"
+    ]
+  }
+}
