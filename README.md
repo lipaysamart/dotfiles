@@ -1,2 +1,3 @@
 # dotfiles
-使用 yadm 进行配置文件的同步管理
+Managed dotfiles synchronization system by Yadm
+
