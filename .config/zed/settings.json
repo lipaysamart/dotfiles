@@ -71,15 +71,6 @@
   },
   "vertical_scroll_margin": 5,
   "format_on_save": "on",
-  "formatter": "prettier",
-  "prettier": {
-    "allowed": true,
-    "tabWidth": 2,
-    "bracketSpacing": true,
-    "semi": false,
-    "jsxSingleQuote": true,
-    "singleQuote": true
-  },
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware",
@@ -87,9 +78,15 @@
     "active_line_width": 1,
     "background_coloring": "indent_aware"
   },
+  "languages": {
+    "YAML": {
+      "tab_size": 2,
+      "hard_tabs": false
+    }
+  },
   "base_keymap": "VSCode",
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
       "provider": "google",
       "model": "gemini-2.5-flash"
@@ -120,6 +117,12 @@
       "enabled": true
     }
   },
+  "ssh_connections": [
+    {
+      "host": "homelab",
+      "projects": [{ "paths": ["~/Git"] }]
+    }
+  ],
   "icon_theme": "Catppuccin Latte",
   "vim_mode": true,
   "tab_size": 2,

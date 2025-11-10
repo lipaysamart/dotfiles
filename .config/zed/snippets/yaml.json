@@ -1,5 +1,5 @@
 {
-  "k8s tolerations": {
+  "k8s pod tolerations": {
     "prefix": "tolerations",
     "description": "Configure pod tolerations",
     "body": [
@@ -11,7 +11,7 @@
       "    $0"
     ]
   },
-  "k8s affinity": {
+  "k8s pod affinity": {
     "prefix": "affinity",
     "description": "Configure pod affinity",
     "body": [
@@ -27,17 +27,57 @@
       "                $0"
     ]
   },
-  "docker compose": {
-    "prefix": "compose",
-    "description": "Configure compose base file",
+  "k8s persistent volume claim template": {
+    "prefix": "volumeclaim",
+    "description": "Configure persistent volume claim template",
     "body": [
-      "services:",
-      "  ${1:main}:",
-      "    image: ${2:image}",
-      "    ports:",
-      "      - ${3:8899:$3",
-      "    restart: unless-stopped",
-      "  $0"
+      "volumeClaimTemplates:",
+      "- metadata:",
+      "    name: ${1:data}",
+      "  spec:",
+      "    accessModes:",
+      "      - ${2:ReadWriteOnce}",
+      "    resources:",
+      "      requests:",
+      "        storage: ${3:1Gi}",
+      "    storageClassName: ${4:default}",
+      "    $0"
+    ]
+  },
+  "k8s general replicaset resource": {
+    "prefix": "replicaset",
+    "description": "Configure general replicaset resource",
+    "body": [
+      "apiVersion: ${1:apps/v1}",
+      "kind: ${2:Deployment}",
+      "metadata:",
+      "  name: ${3:webserver}",
+      "  labels:",
+      "    app.kubernetes.io/name: $3",
+      "spec:",
+      "  replicas: ${4:1}",
+      "  selector:",
+      "    matchLabels:",
+      "      app: ${5:nginx}",
+      "  template:",
+      "    metadata:",
+      "      labels:",
+      "        app: ${5:nginx}",
+      "    spec:",
+      "      containers:",
+      "        - name: ${6:my-container}",
+      "          image: ${7:my-image}",
+      "          ports:",
+      "            - name: http",
+      "            - containerPort: ${8:8080}",
+      "          resources:",
+      "            requests:",
+      "              cpu: ${9:50m}",
+      "              memory: ${10:256Mi}",
+      "            limits:",
+      "              cpu: ${11:100m}",
+      "              memory: ${12:512Mi}",
+      "      $0"
     ]
   }
 }
