@@ -8,4 +8,4 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-call plug#end()noremap 
+call plug#end()
