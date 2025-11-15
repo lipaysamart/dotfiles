@@ -78,10 +78,27 @@
     "active_line_width": 1,
     "background_coloring": "indent_aware"
   },
+  "lsp": {
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--output.text.path="
+        ]
+      }
+    }
+  },
   "languages": {
     "YAML": {
       "tab_size": 2,
       "hard_tabs": false
+    },
+    "Go": {
+      "language_servers": ["gopls", "golangci-lint"]
     }
   },
   "base_keymap": "VSCode",
