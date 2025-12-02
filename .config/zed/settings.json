@@ -147,14 +147,10 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/home/ethan/vault"
-          ]
+          "paths": ["/home/ethan/vault"]
         },
         {
-          "paths": [
-            "~/Git"
-          ]
+          "paths": ["~/Git"]
         }
       ]
     },
