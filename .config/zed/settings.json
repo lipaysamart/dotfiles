@@ -90,6 +90,13 @@
           "--output.text.path="
         ]
       }
+    },
+    "live-server": {
+      "initialization_options": {
+        "lazy": true,
+        "start_port": 5000,
+        "public": false
+      }
     }
   },
   "languages": {
@@ -103,10 +110,10 @@
   },
   "base_keymap": "VSCode",
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "google",
-      "model": "gemini-2.5-flash"
+      "model": "gemini-2.5-pro"
     },
     "button": true,
     "dock": "right",
@@ -137,9 +144,27 @@
   "ssh_connections": [
     {
       "host": "homelab",
-      "projects": [{ "paths": ["~/Git"] }]
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ethan/vault"
+          ]
+        },
+        {
+          "paths": [
+            "~/Git"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "syslog",
+      "args": [],
+      "projects": []
     }
   ],
+
   "icon_theme": "Catppuccin Latte",
   "vim_mode": true,
   "tab_size": 2,
