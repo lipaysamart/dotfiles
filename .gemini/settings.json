@@ -1,0 +1,55 @@
+{
+  "experimental": {
+    "skills": true
+  },
+  "general": {
+    "preferredEditor": "zed",
+    "previewFeatures": true,
+    "vimMode": true,
+    "disableAutoUpdate": false,
+    "checkpointing": {
+      "enabled": true
+    }
+  },
+  "tools": {
+    "sandbox": "docker"
+  },
+  "ui": {
+    "theme": "GitHub",
+    "showMemoryUsage": false,
+    "showLineNumbers": true,
+    "hideTips": false,
+    "hideBanner": false
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "telemetry": {
+    "enabled": true,
+    "target": "local",
+    "otlpEndpoint": "",
+    "outfile": ".gemini/telemetry.log"
+  },
+  "context": {
+    "fileName": ["AGENTS.md", "GEMINI.md"],
+    "loadFromIncludeDirectories": true,
+    "fileFiltering": {
+      "respectGitIgnore": true,
+      "enableRecursiveFileSearch": true
+    }
+  },
+  "model": {
+    "maxSessionTurns": -1
+  },
+  "ide": {
+    "enabled": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  },
+  "output": {
+    "format": "text"
+  }
+}
