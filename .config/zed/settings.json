@@ -9,49 +9,7 @@
 {
   "disable_ai": false,
   "language_models": {
-    "openai_compatible": {
-      "Qwen": {
-        "api_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "available_models": [
-          {
-            "name": "qwen3-coder-30b-a3b-instruct",
-            "max_tokens": 256000,
-            "max_output_tokens": 64000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": false,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false
-            }
-          },
-          {
-            "name": "deepseek-v3.2-exp",
-            "max_tokens": 128000,
-            "max_output_tokens": 64000,
-            "max_completion_tokens": 96000,
-            "capabilities": {
-              "tools": false,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false
-            }
-          },
-          {
-            "name": "qwen3-coder-480b-a35b-instruct",
-            "max_tokens": 256000,
-            "max_output_tokens": 64000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false
-            }
-          }
-        ]
-      }
-    }
+    "openai_compatible": {},
   },
   "tabs": {
     // https://zed.dev/docs/configuring-zed#editor-tabs
@@ -59,7 +17,7 @@
     "git_status": true,
     "activate_on_close": "history",
     "show_close_button": "hover",
-    "show_diagnostics": "all"
+    "show_diagnostics": "all",
   },
   "scrollbar": {
     "show": "auto",
@@ -67,7 +25,7 @@
     "git_diff": true,
     "search_results": true,
     "selected_symbol": true,
-    "diagnostics": "all"
+    "diagnostics": "all",
   },
   "vertical_scroll_margin": 5,
   "format_on_save": "on",
@@ -76,53 +34,42 @@
     "coloring": "indent_aware",
     "line_width": 1,
     "active_line_width": 1,
-    "background_coloring": "indent_aware"
+    "background_coloring": "indent_aware",
   },
   "lsp": {
-    "golangci-lint": {
-      "initialization_options": {
-        "command": [
-          "golangci-lint",
-          "run",
-          "--output.json.path",
-          "stdout",
-          "--show-stats=false",
-          "--output.text.path="
-        ]
-      }
-    },
     "live-server": {
       "initialization_options": {
         "lazy": true,
         "start_port": 5000,
-        "public": false
-      }
-    }
+        "public": false,
+      },
+    },
   },
   "languages": {
     "YAML": {
       "tab_size": 2,
-      "hard_tabs": false
+      "hard_tabs": false,
+      "format_on_save": "off",
     },
     "Go": {
-      "language_servers": ["gopls", "golangci-lint"]
-    }
+      "language_servers": ["gopls"],
+    },
   },
   "base_keymap": "VSCode",
   "agent": {
     "default_profile": "write",
     "default_model": {
       "provider": "google",
-      "model": "gemini-2.5-pro"
+      "model": "gemini-3-flash-preview",
     },
     "button": true,
     "dock": "right",
     "default_width": 640,
-    "default_height": 640
+    "default_height": 640,
   },
   "toolbar": {
     "breadcrumbs": true,
-    "quick_actions": true
+    "quick_actions": true,
   },
   "terminal": {
     "dock": "bottom",
@@ -133,32 +80,26 @@
     "working_directory": "current_project_directory",
     "blinking": "terminal_controlled",
     "copy_on_select": true,
-    "cursor_shape": "block"
+    "cursor_shape": "block",
   },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "ssh_connections": [
     {
       "host": "homelab",
       "args": [],
-      "projects": [
-        {
-          "paths": ["/home/ethan/vault"]
-        },
-        {
-          "paths": ["~/Git"]
-        }
-      ]
+      "projects": [],
+      "upload_binary_over_ssh": true,
     },
     {
       "host": "syslog",
       "args": [],
-      "projects": []
-    }
+      "projects": [],
+    },
   ],
 
   "icon_theme": "Catppuccin Latte",
@@ -171,6 +112,6 @@
   "theme": {
     "mode": "system",
     "light": "Alabaster Dark",
-    "dark": "Alabaster Dark"
-  }
+    "dark": "Alabaster Dark",
+  },
 }

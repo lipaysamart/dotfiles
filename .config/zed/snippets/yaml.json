@@ -1,4 +1,21 @@
 {
+  "k8s pod init": {
+    "prefix": "podinit",
+    "description": "Initialize pod",
+    "body": [
+      "initContainers:",
+      "  - name: init-permissions",
+      "    image: busybox:latest",
+      "    command:",
+      "      - sh",
+      "      - -c",
+      "      - |",
+      "        ${1:chown -R 1000:1000 /app/api/storage}",
+      "    volumeMounts:",
+      "      - name: ${2:data}",
+      "        mountPath: ${3:/app/api/storage}",
+    ],
+  },
   "k8s pod tolerations": {
     "prefix": "tolerations",
     "description": "Configure pod tolerations",
@@ -8,8 +25,8 @@
       "  operator: Equal",
       "  value:",
       "   - ${1:prd}",
-      "    $0"
-    ]
+      "    $0",
+    ],
   },
   "k8s pod affinity": {
     "prefix": "affinity",
@@ -24,8 +41,8 @@
       "              operator: In",
       "              values:",
       "                - ${2:prd}",
-      "                $0"
-    ]
+      "                $0",
+    ],
   },
   "k8s persistent volume claim template": {
     "prefix": "volumeclaim",
@@ -41,8 +58,8 @@
       "      requests:",
       "        storage: ${3:1Gi}",
       "    storageClassName: ${4:default}",
-      "    $0"
-    ]
+      "    $0",
+    ],
   },
   "k8s general replicaset resource": {
     "prefix": "replicaset",
@@ -77,7 +94,7 @@
       "            limits:",
       "              cpu: ${11:100m}",
       "              memory: ${12:512Mi}",
-      "      $0"
-    ]
-  }
+      "      $0",
+    ],
+  },
 }
