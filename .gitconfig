@@ -1,6 +1,6 @@
 [user]
 	email = lipaysamart@gmail.com
-	name = lipaysamart
+	name = lipaysam
 [github]
     user = lipaysamart
 [credential]
@@ -29,3 +29,8 @@
 [diff]
 		algorithm = histogram
 		tool = difftastic
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
