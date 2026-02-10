@@ -1,2 +1,2 @@
 .ssh/*.pem
-.config/clash/*.yaml
+.ssh/*.ini
