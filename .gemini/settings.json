@@ -25,7 +25,7 @@
     "usageStatisticsEnabled": false
   },
   "telemetry": {
-    "enabled": true,
+    "enabled": false,
     "target": "local",
     "otlpEndpoint": "",
     "outfile": ".gemini/telemetry.log"

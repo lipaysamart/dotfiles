@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "context7_api_key": "${CONTEXT7_API_KEY}",
+      },
+    },
+  },
   "disable_ai": false,
   "language_models": {
     "openai_compatible": {},
@@ -37,6 +46,21 @@
     "background_coloring": "indent_aware",
   },
   "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
     "live-server": {
       "initialization_options": {
         "lazy": true,
@@ -57,7 +81,59 @@
   },
   "base_keymap": "VSCode",
   "agent": {
-    "default_profile": "write",
+    "always_allow_tool_actions": true,
+    "profiles": {
+      "minimal": {
+        "name": "Minimal",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "Context7": {
+            "tools": {
+              "query-docs": false,
+              "resolve-library-id": false,
+            },
+          },
+        },
+      },
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": true,
+          "project_notifications": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "open": true,
+          "grep": true,
+          "thinking": true,
+          "web_search": true,
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "shadcn": {
+            "tools": {
+              "view_items_in_registries": true,
+              "search_items_in_registries": true,
+              "list_items_in_registries": true,
+              "get_project_registries": true,
+              "get_item_examples_from_registries": true,
+              "get_audit_checklist": true,
+              "get_add_command_for_items": true,
+            },
+          },
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+              "query-docs": true,
+            },
+          },
+        },
+      },
+    },
+    "default_profile": "ask",
     "default_model": {
       "provider": "google",
       "model": "gemini-3-flash-preview",
@@ -111,7 +187,7 @@
   "buffer_font_size": 15.0,
   "theme": {
     "mode": "system",
-    "light": "Alabaster Dark",
-    "dark": "Alabaster Dark",
+    "light": "GitHub Light Colorblind",
+    "dark": "GitHub Dark Colorblind",
   },
 }
