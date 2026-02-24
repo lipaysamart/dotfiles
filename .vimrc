@@ -1,1 +1,1 @@
-.vimrc##os.Darwin
+.vimrc##os.Linux
