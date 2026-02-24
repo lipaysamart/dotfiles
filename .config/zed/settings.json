@@ -1,13 +1,12 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "context_servers": {
+    "mcp-server-github": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "github_personal_access_token": "GITHUB_PERSONAL_ACCESS_TOKEN",
+      },
+    },
     "mcp-server-context7": {
       "enabled": true,
       "remote": false,
@@ -16,12 +15,12 @@
       },
     },
   },
+  "load_direnv": "shell_hook",
   "disable_ai": false,
   "language_models": {
     "openai_compatible": {},
   },
   "tabs": {
-    // https://zed.dev/docs/configuring-zed#editor-tabs
     "file_icons": true,
     "git_status": true,
     "activate_on_close": "history",
@@ -81,7 +80,9 @@
   },
   "base_keymap": "VSCode",
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow",
+    },
     "profiles": {
       "minimal": {
         "name": "Minimal",
