@@ -17,8 +17,15 @@
   },
   "load_direnv": "shell_hook",
   "disable_ai": false,
-  "language_models": {
-    "openai_compatible": {},
+  "languages": {
+    "YAML": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "off",
+    },
+    "Go": {
+      "language_servers": ["gopls"],
+    },
   },
   "tabs": {
     "file_icons": true,
