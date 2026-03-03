@@ -17,14 +17,66 @@
   },
   "load_direnv": "shell_hook",
   "disable_ai": false,
-  "languages": {
-    "YAML": {
-      "tab_size": 2,
-      "hard_tabs": false,
-      "format_on_save": "off",
-    },
-    "Go": {
-      "language_servers": ["gopls"],
+  "language_models": {
+    "openai_compatible": {
+      "Qwen": {
+        "api_url": "https://coding.dashscope.aliyuncs.com/v1",
+        "available_models": [
+          {
+            "name": "qwen3-coder-plus",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+
+          {
+            "name": "MiniMax-M2.5",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "glm-5",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "kimi-k2.5",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+        ],
+      },
     },
   },
   "tabs": {
