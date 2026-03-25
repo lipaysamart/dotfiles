@@ -15,5 +15,5 @@ echo -e "${GREEN}正在安装 fnm (Rust 编写的 Node 管理器)...${NC}"
 if [[ "$OS" == "Darwin" ]]; then
     brew install fnm
 else
-    curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+    curl -fsSL https://fnm.vercel.app/install | bash
 fi
