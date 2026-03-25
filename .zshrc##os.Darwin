@@ -1,0 +1,23 @@
+# Zsh Configure
+HISTFILE=~/.zsh_history
+HISTSIZE=10000        # 内存中保存的记录数
+SAVEHIST=10000        # 本地文件中保存的记录数
+setopt SHARE_HISTORY          # 多个终端会话共享历史记录
+setopt HIST_IGNORE_ALL_DUPS   # 忽略重复命令
+setopt HIST_REDUCE_BLANKS     # 删除多余空格
+setopt INC_APPEND_HISTORY     # 命令执行完立即写入文件，而不是等退出 Shell
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Init
+eval "$(starship init zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# User configuration
+alias tf="/opt/homebrew/bin/terraform"
+alias k="/opt/homebrew/bin/kubectl"
+
+# orbstack
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

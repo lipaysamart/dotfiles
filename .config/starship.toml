@@ -1,0 +1,39 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+[character]
+success_symbol = '[❯](bold green)'
+
+[directory]
+truncation_length = 8
+truncation_symbol = '…/'
+
+[package]
+disabled = true
+
+[golang]
+format = 'via [💨 $version](bold cyan) '
+
+[bun]
+format = 'via [🍔 $version](bold green) '
+
+[python]
+symbol = "🐍 "
+
+[battery]
+threshold = 10
+format = "🔋 $percentage%"
+
+[git_branch]
+symbol = "🌿 "
+[git_status]
+staged = "[+](green)"
+untracked = "[?](red)"
+modified = "[*](yellow)"
+
+# This is the default symbols table.
+[os.symbols]
+CentOS = "💠 "
+Debian = "🌀 "
+Macos = "🍎 "

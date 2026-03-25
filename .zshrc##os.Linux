@@ -1,0 +1,15 @@
+# Zsh Configure
+HISTFILE=~/.zsh_history
+HISTSIZE=10000        # 内存中保存的记录数
+setopt SHARE_HISTORY          # 多个终端实时共享历史
+setopt HIST_IGNORE_DUPS       # 不记录重复的命令
+setopt HIST_IGNORE_SPACE      # 输入命令时以前置空格开头，不记录到历史（用于藏密码）
+setopt HIST_VERIFY            # 在执行历史展开（如 !!）前先预览
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(starship init zsh)"
+
+alias k=/usr/local/bin/kubectl
+alias tf=/usr/bin/terraform
