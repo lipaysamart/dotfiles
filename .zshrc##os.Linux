@@ -9,7 +9,9 @@ setopt HIST_VERIFY            # 在执行历史展开（如 !!）前先预览
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Init
 eval "$(starship init zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 alias k=/usr/local/bin/kubectl
 alias tf=/usr/bin/terraform
