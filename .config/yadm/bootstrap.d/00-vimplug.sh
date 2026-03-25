@@ -5,7 +5,7 @@ if ! command -v vim >/dev/null 2>&1; then
     exit 0
 fi
 
-VIM_AUTOLOAD_DIR="${XDG_DATA_HOME:-$HOME/.vim/autoload"
+VIM_AUTOLOAD_DIR="${XDG_DATA_HOME:-$HOME/.vim/autoload}"
 VIM_PLUG_FILE="$VIM_AUTOLOAD_DIR/plug.vim"
 
 if [[ ! -f "$VIM_PLUG_FILE" ]]; then
