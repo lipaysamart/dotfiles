@@ -7,8 +7,8 @@ setopt HIST_IGNORE_ALL_DUPS   # 忽略重复命令
 setopt HIST_REDUCE_BLANKS     # 删除多余空格
 setopt INC_APPEND_HISTORY     # 命令执行完立即写入文件，而不是等退出 Shell
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Init
 eval "$(starship init zsh)"
