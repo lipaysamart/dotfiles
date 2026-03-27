@@ -6,6 +6,10 @@ setopt SHARE_HISTORY          # 多个终端会话共享历史记录
 setopt HIST_IGNORE_ALL_DUPS   # 忽略重复命令
 setopt HIST_REDUCE_BLANKS     # 删除多余空格
 setopt INC_APPEND_HISTORY     # 命令执行完立即写入文件，而不是等退出 Shell
+setopt AUTO_CD                # 输入目录名自动 cd
+setopt AUTO_PUSHD             # cd 时自动 pushd
+setopt PUSHD_IGNORE_DUPS      # pushd 忽略重复目录
+setopt CORRECT                # 命令自动纠错
 
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -16,8 +20,10 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # User configuration
+alias ll="ls -lah"
+alias la="ls -A"
+alias grep="grep --color=auto"
+alias ..="cd .."
+alias ...="cd ../.."
 alias tf="/opt/homebrew/bin/terraform"
 alias k="/opt/homebrew/bin/kubectl"
-
-# orbstack
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :
