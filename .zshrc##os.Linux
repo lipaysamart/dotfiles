@@ -1,27 +1,29 @@
 # Zsh Configure
 HISTFILE=~/.zsh_history
-HISTSIZE=10000        # 内存中保存的记录数
-setopt SHARE_HISTORY          # 多个终端实时共享历史
-setopt HIST_IGNORE_DUPS       # 不记录重复的命令
-setopt HIST_IGNORE_SPACE      # 输入命令时以前置空格开头，不记录到历史（用于藏密码）
-setopt HIST_VERIFY            # 在执行历史展开（如 !!）前先预览
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY
+
+# 忽略敏感命令记录
+HISTIGNORE='export *:ssh *:scp *:mysql *:mongo *:redis-cli *:psql *:curl *:wget *:docker login*'
 setopt AUTO_CD                # 输入目录名自动 cd
 setopt AUTO_PUSHD             # cd 时自动 pushd
 setopt PUSHD_IGNORE_DUPS      # pushd 忽略重复目录
 setopt CORRECT                # 命令自动纠错
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Starship
+# Init
 eval "$(starship init zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 
-# FNM
-FNM_PATH="$HOME/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env --shell zsh)"
-fi
+# Start ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/homelab
 
 # Alias
 alias ll="ls -lah"
