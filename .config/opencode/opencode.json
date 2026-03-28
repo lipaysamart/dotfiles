@@ -1,5 +1,38 @@
 {
     "$schema": "https://opencode.ai/config.json",
+    "permission": {
+      "bash": {
+        "git push --force*": "deny",
+        "wget *|bash*": "deny",
+        "wget *| bash*": "deny",
+        "git push *--force*": "deny",
+        "git reset --hard*": "deny",
+        "rm -rf": "deny",
+        "rm -fr": "deny",
+        "mkfs": "deny",
+        "dd": "deny"
+      },
+      "read": {
+        "~/.ssh/**": "deny",
+        "~/.gnupg/**": "deny",
+        "~/.aws/**": "deny",
+        "~/.aliyun/**": "deny",
+        "~/.config/gh/**": "deny",
+        "~/.git-credentials": "deny",
+        "~/.docker/config.json": "deny",
+        "~/.kube/**": "deny",
+        "~/.npmrc": "deny",
+        "~/.npm/**": "deny",
+        "~/.pypirc": "deny",
+        "~/.gem/credentials)": "deny",
+        "~/Library/Keychains/**": "deny"
+      },
+      "edit": {
+        "~/.bashrc": "deny",
+        "~/.zshrc": "deny",
+        "~/.ssh/**": "deny"
+      }
+    },
     "provider": {
         "bailian-coding-plan": {
             "npm": "@ai-sdk/anthropic",
