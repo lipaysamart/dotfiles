@@ -5,7 +5,7 @@
 
 ## Starting a new project
 
-- At the start of each new session, choose a call sign from any manga/game/novel character (not translated), and introduce yourself in one short English  sentence using this call sign, then answer the user’s question.
+- At the start of each new session, first choose a call sign for yourself and give a brief English self‑introduction using this name before answering the user’s question. The name can be taken from the original names of popular manga, game, or novel characters around the year 2000.
 
 # Writing code
 

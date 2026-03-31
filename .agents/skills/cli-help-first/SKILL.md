@@ -1,104 +1,149 @@
 ---
 name: cli-help-first
-description: Before executing complex CLI tools (kubectl, docker, terraform, ansible, go, uv, vite, tailscale, vault, packer，vagrant), always check --help or man pages first to understand command syntax and parameters. Use this skill whenever the user asks to run commands with these tools, even for seemingly simple operations. This reduces hallucinations and retry errors by ensuring correct command construction.
+description: Before executing complex CLI tools (kubectl, docker, terraform, ansible, go, uv, vite, tailscale, vault, packer, vagrant), always check --help or man pages first to understand command syntax and parameters. Use this skill whenever the user asks to run commands with these tools, even for seemingly simple operations. This reduces hallucinations and retry errors by ensuring correct command construction.
 ---
 
 # CLI Help-First
 
-在使用复杂的命令行工具时，先查阅帮助文档可以显著减少错误和重试。
+When using complex command-line tools, consulting help documentation first can significantly reduce errors and retries.
 
-## 核心原则
+## Core Principle
 
-在执行目标 CLI 工具命令之前，**必须先**通过 `--help` 或 `man` 理解命令的正确语法和参数。
+Before executing target CLI tool commands, you **must first** understand the correct syntax and parameters through `--help` or `man`.
 
-## 适用工具
+## Applicable Tools
 
-此技能适用于以下复杂 CLI 工具：
+This skill applies to the following complex CLI tools:
 
-- **容器/编排**: `kubectl`, `docker`, `podman`
-- **基础设施**: `terraform`, `ansible`, `packer`, `vagrant`
-- **机密信息管理**: `vault`
-- **开发工具**: `go`, `uv`, `bun`, `vite`
-- **网络**: `tailscale`
+- **Container/Orchestration**: `kubectl`, `docker`, `podman`
+- **Infrastructure**: `terraform`, `ansible`, `packer`, `vagrant`
+- **Secrets Management**: `vault`
+- **Development Tools**: `go`, `uv`, `bun`, `vite`
+- **Networking**: `tailscale`
 
-**不需要**预先查阅帮助的常用 bash 命令：
-`ls`, `cd`, `cp`, `mv`, `rm`, `mkdir`, `cat`, `echo`, `grep`, `find`, `git`, `sed`, `awk` 的常用操作（如 `git status`, `git add`, `git commit`, `git push`, `git pull`）
+Common bash commands that **do not require** pre-checking help:
+`ls`, `cd`, `cp`, `mv`, `rm`, `mkdir`, `cat`, `echo`, `grep`, `find`, `git`, `sed`, `awk` for common operations (e.g., `git status`, `git add`, `git commit`, `git push`, `git pull`)
 
-## 工作流程
+## Workflow
 
-### 1. 检查帮助缓存
+### 1. Check Help Cache
 
-首先检查本次会话中是否已缓存该工具的帮助信息。缓存存储在内存中，格式为：
+First check if help information for this tool has been cached in the current session. Cache stores raw help output and version info:
 
 ```
-<tool-name>_help_cached: true/false
+CLI_HELP_CACHE = {
+  "<tool>": {
+    "version": "<version-string>",
+    "help_raw": "<full --help output>",
+    "subcommands": {
+      "<subcommand>": {
+        "help_raw": "<subcommand --help output>"
+      }
+    }
+  }
+}
 ```
 
-如果已缓存，跳到步骤 3。
+Cache lookup logic:
+- If tool exists in cache AND version unchanged → use cached help
+- If tool not in cache OR version changed → fetch fresh help
+- Subcommands are cached on-demand when accessed
 
-### 2. 获取帮助信息
+If already cached with matching version, skip to step 3.
 
-优先使用 `--help`，如果输出不足或失败，再尝试 `man`：
+### 2. Retrieve Help Information
+
+First get version, then fetch help:
 
 ```bash
-<tool> --help          # 获取简短帮助
-<tool> <subcommand> --help  # 获取子命令详细帮助
-man <tool>             # 如果 --help 不够详细
+<tool> --version       # Get version for cache validation
+<tool> --help           # Get brief help
+<tool> <subcommand> --help  # Get detailed subcommand help (cache on-demand)
+man <tool>              # Fallback if --help is insufficient
 ```
 
-获取后，标记该工具的帮助信息已缓存。
-
-### 3. 理解并构建命令
-
-根据帮助信息：
-
-- 确认命令语法
-- 识别必需参数和可选参数
-- 理解参数格式要求
-- 查看示例（如果有）
-
-### 4. 执行命令
-
-构建正确的命令并执行。如果遇到错误，重新查阅帮助信息确认。
-
-## 示例
-
-**示例 1：使用 kubectl 创建部署**
-
-用户请求：使用 kubectl 创建一个 Nginx 副本
-
+After retrieval, store in cache:
 ```
-步骤 1: kubectl --help
-步骤 2: kubectl create --help
-步骤 3: kubectl create deployment --help
-步骤 4: 执行: kubectl create deployment nginx --image=nginx
+CLI_HELP_CACHE["<tool>"] = {
+  "version": "<captured version>",
+  "help_raw": "<help output>",
+  "subcommands": {}
+}
 ```
 
-**示例 2：使用 docker 构建镜像**
+### 3. Understand and Build Command
 
-用户请求：用 docker 构建一个名为 myapp 的镜像
+Based on help information:
+
+- Confirm command syntax
+- Identify required and optional parameters
+- Understand parameter format requirements
+- Review examples (if available)
+
+### 4. Execute Command
+
+Build the correct command and execute. If errors occur, re-check help information to confirm.
+
+## Examples
+
+**Example 1: Using kubectl to create deployment**
+
+User request: Use kubectl to create an Nginx replica
 
 ```
-步骤 1: docker --help
-步骤 2: docker build --help
-步骤 3: 执行: docker build -t myapp .
+Step 1: kubectl --help
+Step 2: kubectl create --help
+Step 3: kubectl create deployment --help
+Step 4: Execute: kubectl create deployment nginx --image=nginx
 ```
 
-**示例 3：使用 terraform 创建资源**
+**Example 2: Using docker to build image**
 
-用户请求：用 terraform 初始化并应用配置
+User request: Build an image named myapp with docker
 
 ```
-步骤 1: terraform --help
-步骤 2: terraform init --help
-步骤 3: 执行 terraform init
-步骤 4: terraform apply --help
-步骤 5: 执行 terraform apply
+Step 1: docker --help
+Step 2: docker build --help
+Step 3: Execute: docker build -t myapp .
 ```
 
-## 注意事项
+**Example 3: Using terraform to create resources**
 
-- 即使你"知道"某个命令的用法，仍然应该先查阅帮助，因为不同版本可能有差异
-- 对于多级子命令，逐级查阅帮助（如 `kubectl` → `kubectl create` → `kubectl create deployment`）
-- 帮助信息较长时，重点关注语法（SYNOPSIS）和示例（EXAMPLES）部分
-- 如果命令失败，先检查帮助信息确认参数格式是否正确，而不是猜测修复
+User request: Initialize and apply configuration with terraform
+
+```
+Step 1: terraform --help
+Step 2: terraform init --help
+Step 3: Execute terraform init
+Step 4: terraform apply --help
+Step 5: Execute terraform apply
+```
+
+**Example 4: Cache in action**
+
+```
+# First time using kubectl in session
+Step 1: kubectl version --client → "v1.28.0"
+Step 2: kubectl --help → cache CLI_HELP_CACHE["kubectl"]["help_raw"]
+Step 3: kubectl create --help → cache CLI_HELP_CACHE["kubectl"]["subcommands"]["create"]["help_raw"]
+
+# Later in same session, using kubectl again
+Step 1: Check cache → kubectl exists, version matches → skip fetch
+Step 2: Use cached help_raw directly
+Step 3: If need new subcommand (e.g., kubectl delete), fetch and cache on-demand
+```
+
+## Notes
+
+- Even if you "know" how to use a command, you should still check help first, as different versions may have differences
+- For multi-level subcommands, check help level by level (e.g., `kubectl` → `kubectl create` → `kubectl create deployment`)
+- When help information is long, focus on the SYNOPSIS and EXAMPLES sections
+- If a command fails, first check the help information to confirm parameter format is correct, rather than guessing fixes
+
+## Cache Invalidation
+
+Cache is invalidated when:
+- New session starts (memory-based, not persistent)
+- Version changes detected (`<tool> --version` output differs)
+- Command fails with syntax error (may indicate help was misunderstood, re-fetch)
+- User explicitly requests fresh help
