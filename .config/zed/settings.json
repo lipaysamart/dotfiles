@@ -1,12 +1,12 @@
 {
-  "context_servers": {
-    "mcp-server-github": {
-      "enabled": true,
-      "remote": false,
-      "settings": {
-        "github_personal_access_token": "GITHUB_PERSONAL_ACCESS_TOKEN",
-      },
+  "agent_servers": {
+    "OpenCode": {
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
     },
+  },
+  "context_servers": {
     "mcp-server-context7": {
       "enabled": true,
       "remote": false,
