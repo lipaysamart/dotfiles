@@ -3,7 +3,7 @@
 working-directory = home
 confirm-close-surface = false
 quit-after-last-window-closed = true
-shell-integration = fish
+shell-integration = zsh
 shell-integration-features = cursor, sudo, title
 term = "xterm-256color"
 clipboard-read = allow
