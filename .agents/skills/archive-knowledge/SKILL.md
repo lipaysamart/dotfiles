@@ -11,13 +11,15 @@ description: >
 
 Archives knowledge to GitHub Issues using the wiki repository's issue templates.
 
+**IMPORTANT: All issues must be created in the `lipaysamart/wiki` repository, NOT the current working directory's repository.**
+
 ## Workflow
 
 1. **Identify template type** from user request
 2. **Collect information** through Q&A if user content is insufficient
 3. **Generate preview** and show to user (including labels)
-4. **Create labels** (auto-create 1-3 relevant tags with auto-assigned colors)
-5. **Confirm and submit** via `gh issue create`
+4. **Create labels** in `lipaysamart/wiki` repo (auto-create 1-3 relevant tags with auto-assigned colors)
+5. **Confirm and submit** via `gh issue create --repo lipaysamart/wiki`
 
 ## Template Mapping
 
@@ -64,11 +66,13 @@ Archives knowledge to GitHub Issues using the wiki repository's issue templates.
 
 ## Labels
 
+**All label operations must target `lipaysamart/wiki` repository.**
+
 1. **Identify 1-3 relevant labels** based on topic (e.g., `Docker`, `Kubernetes`, `Debugging`)
-2. **Check existence**: `gh label list --limit 100`
+2. **Check existence**: `gh label list --repo lipaysamart/wiki --limit 100`
 3. **Auto-create if not exists**:
    ```bash
-   gh label create "<label>" --color "<color>"
+   gh label create "<label>" --repo lipaysamart/wiki --color "<color>"
    ```
    - Auto-assign colors from a predefined palette
    - Common color palette: `#0075CA` (blue), `#0E8A16` (green), `#D93F0B` (orange), `#5319E7` (purple), `#1D76DB` (dark blue), `#E99695` (pink)
@@ -76,16 +80,18 @@ Archives knowledge to GitHub Issues using the wiki repository's issue templates.
 
 ## Submission
 
-After user confirms preview:
+After user confirms preview, **always use `--repo lipaysamart/wiki` flag**:
 
 ```bash
 gh issue create \
+  --repo lipaysamart/wiki \
   --title "<title>" \
   --body "<body>" \
   --label "<label1>,<label2>"
 ```
 
 **Important Notes:**
+- **CRITICAL: Always specify `--repo lipaysamart/wiki` to avoid creating issues in wrong repository**
 - **Titles must ALWAYS be in English, using Title Case** (e.g., "Caddy Docker Proxy vs Caddy")
 - **Labels must use Title Case** (e.g., `Docker`, `Kubernetes`, not `docker`, `kubernetes`)
 - **Do NOT use `--template` with `--body`** - they are mutually exclusive

@@ -21,10 +21,6 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-# Start ssh-agent
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/homelab
-
 # Alias
 alias ll="ls -lah"
 alias la="ls -A"
