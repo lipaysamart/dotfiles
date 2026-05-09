@@ -3,6 +3,7 @@
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-flash",
   "packages": ["pi-skills"],
+  "skills": ["~/.agents/skills"],
   "retry": {
     "enabled": true,
     "maxRetries": 3
