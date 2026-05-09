@@ -26,7 +26,7 @@ main() {
         "$SOURCE_DIR/skills:$HOME/.config/opencode"
         "$SOURCE_DIR/commands:$HOME/.config/opencode"
         "$SOURCE_DIR/AGENTS.md:$HOME/.config/opencode"
-        "$SOURCE_DIR/skills:$HOME/.pi/agent"
+        "$SOURCE_DIR/skills:$HOME/.pi"
         "$SOURCE_DIR/commands:$HOME/.pi/agent"
         "$SOURCE_DIR/AGENTS.md:$HOME/.pi/agent"
     )

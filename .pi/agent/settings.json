@@ -1,6 +1,15 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "skills": ["~/.agents/skills"],
   "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-flash"
+  "defaultModel": "deepseek-v4-flash",
+  "packages": ["pi-skills"],
+  "retry": {
+    "enabled": true,
+    "maxRetries": 3
+  },
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 16384,
+    "keepRecentTokens": 20000
+  }
 }
