@@ -30,4 +30,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias tf="/opt/homebrew/bin/terraform"
 alias k="/opt/homebrew/bin/kubectl"
+alias pi='nocorrect pi'
+
 ulimit -n unlimited
+
+

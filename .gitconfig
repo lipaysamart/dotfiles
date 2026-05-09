@@ -19,6 +19,7 @@
 [core]
 	autocrlf = input
 	whitespace = fix
+	pager = hunk pager
 [http]
 	postBuffer = 157286400
 
