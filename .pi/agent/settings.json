@@ -1,12 +1,13 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultProvider": "bailian",
+  "defaultModel": "glm-5",
   "packages": [
     "pi-skills",
     "npm:pi-permission-system@0.4.9",
     "npm:pi-subagents@0.24.0",
-    "npm:pi-mcp-adapter@2.5.4"
+    "npm:pi-mcp-adapter@2.5.4",
+    "npm:pi-direnv"
   ],
   "enableSkillCommands": false,
   "retry": {
@@ -23,5 +24,6 @@
     "enabled": true,
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
-  }
+  },
+  "defaultThinkingLevel": "medium"
 }
