@@ -6,8 +6,7 @@
     "pi-skills",
     "npm:pi-permission-system@0.4.9",
     "npm:pi-subagents@0.24.0",
-    "npm:pi-mcp-adapter@2.5.4",
-    "npm:pi-direnv"
+    "npm:pi-mcp-adapter@2.5.4"
   ],
   "enableSkillCommands": false,
   "retry": {
