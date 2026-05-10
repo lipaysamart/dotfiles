@@ -1,0 +1,18 @@
+{
+  "settings": {
+    "toolPrefix": "none",
+    "idleTimeout": 10
+  },
+  "mcpServers": {
+    "mcp-server-context7": {
+      "command": "bunx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "lifecycle": "lazy",
+      "idleTimeout": 10,
+      "remote": false,
+      "env": {
+        "CTX7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    }
+  }
+}
