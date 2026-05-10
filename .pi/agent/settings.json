@@ -2,14 +2,23 @@
   "lastChangelogVersion": "0.74.0",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-flash",
-  "packages": ["pi-skills"],
-  "enableSkillCommands": "false",
+  "packages": [
+    "pi-skills",
+    "npm:pi-permission-system@0.4.9",
+    "npm:pi-subagents@0.24.0",
+    "npm:pi-mcp-adapter@2.5.4"
+  ],
+  "enableSkillCommands": false,
   "retry": {
     "enabled": true,
     "maxRetries": 3
   },
-  "skills": ["~/.agents/skills"],
-  "prompts": ["~/.agents/commands"],
+  "skills": [
+    "~/.agents/skills"
+  ],
+  "prompts": [
+    "~/.agents/commands"
+  ],
   "compaction": {
     "enabled": true,
     "reserveTokens": 16384,
