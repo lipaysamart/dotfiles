@@ -7,7 +7,7 @@
     "npm:pi-permission-system@0.4.9",
     "npm:pi-subagents@0.24.0",
     "npm:pi-mcp-adapter@2.5.4",
-    "npm:pi-web-access"
+    "npm:pi-web-providers@3.0.0"
   ],
   "enableSkillCommands": false,
   "retry": {
