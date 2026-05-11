@@ -1,0 +1,46 @@
+{
+  "defaultPolicy": {
+    "tools": "ask",
+    "bash": "ask",
+    "mcp": "ask",
+    "skills": "ask",
+    "special": "ask"
+  },
+
+  "tools": {
+    "read": "allow",
+    "write": "allow",
+    "edit": "ask",
+    "grep": "allow",
+    "find": "allow",
+    "ls": "allow",
+    "mcp": "ask"
+  },
+
+  "bash": {
+    "git push --force*": "deny",
+    "wget *| bash*": "deny",
+    "wget *| bash*": "deny",
+    "git push *--force*": "deny",
+    "git reset --hard*": "deny",
+    "rm -rf": "deny",
+    "rm -fr": "deny",
+    "mkfs": "deny",
+    "dd": "deny"
+  },
+
+  "mcp": {
+    "*": "allow"
+  },
+
+  "skills": {
+    "cli-help-*": "allow",
+    "archive-*": "allow",
+    "yadm-*": "allow"
+  },
+
+  "special": {
+    "doom_loop": "deny",
+    "external_directory": "allow"
+  }
+}
