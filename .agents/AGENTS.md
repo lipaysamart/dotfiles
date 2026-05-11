@@ -9,7 +9,6 @@
 
 # Writing code
 
-- All code files should start with a brief 2 line comment explaining what the file does. Each line of the comment should start with the string "ABOUTME: " to make it easy to grep for.
 - You should always use bun instead of npm.
 
 ## Think Before Coding
@@ -76,7 +75,3 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 # Getting help
 
 - If you're having trouble with something, it's ok to stop and ask for help. Especially if it's something your human might be better at.
-
-# Troubleshooting
-
-- If you encounter network issues when pushing or pulling from GitHub, execute the command `export https_proxy=http://127.0.0.1:7897` to temporarily use the proxy solution.
