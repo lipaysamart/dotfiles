@@ -1,4 +1,7 @@
 #!/bin/bash
+# ABOUTME: 安装 keychain - SSH/GPG 密钥代理管理器
+# ABOUTME: macOS 使用 brew，Linux 使用 apt/dnf/pacman (需要 sudo)
+
 set -euo pipefail
 
 : "${GREEN:=\033[0;32m}"
@@ -42,6 +45,7 @@ main() {
             fi
             ;;
         Linux)
+            # 注意: Linux 安装需要 sudo 权限
             if check_command apt-get; then
                 sudo apt-get update && sudo apt-get install -y keychain
             elif check_command dnf; then

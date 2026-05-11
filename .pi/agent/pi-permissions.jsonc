@@ -1,20 +1,20 @@
 {
   "defaultPolicy": {
-    "tools": "ask",
-    "bash": "ask",
-    "mcp": "ask",
-    "skills": "ask",
-    "special": "ask"
+    "tools": "allow",
+    "bash": "allow",
+    "mcp": "allow",
+    "skills": "allow",
+    "special": "allow"
   },
 
   "tools": {
     "read": "allow",
     "write": "allow",
-    "edit": "ask",
+    "edit": "allow",
     "grep": "allow",
     "find": "allow",
     "ls": "allow",
-    "mcp": "ask"
+    "mcp": "allow"
   },
 
   "bash": {
@@ -34,9 +34,7 @@
   },
 
   "skills": {
-    "cli-help-*": "allow",
-    "archive-*": "allow",
-    "yadm-*": "allow"
+    "*": "allow"
   },
 
   "special": {

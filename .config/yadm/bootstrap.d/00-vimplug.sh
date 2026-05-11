@@ -1,4 +1,7 @@
 #!/bin/bash
+# ABOUTME: 安装 vim-plug 插件管理器并执行插件安装/更新
+# ABOUTME: 检查 vim 是否存在，下载 plug.vim，执行 PlugUpdate 和 PlugClean
+
 set -euo pipefail
 
 if ! command -v vim >/dev/null 2>&1; then
@@ -15,4 +18,4 @@ if [[ ! -f "$VIM_PLUG_FILE" ]]; then
 fi
 
 echo "正在 Bootstrap Vim..."
-vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+vim '+PlugUpdate' '+PlugClean!' '+qall'

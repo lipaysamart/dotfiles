@@ -1,4 +1,7 @@
 #!/bin/bash
+# ABOUTME: 安装 zsh 插件 (zsh-autosuggestions, zsh-syntax-highlighting)
+# ABOUTME: 克隆插件到 ~/.zsh 目录，支持幂等安装
+
 set -euo pipefail
 
 : "${GREEN:=\033[0;32m}"
@@ -11,8 +14,16 @@ install_zsh_plugin() {
     local repo=$2
     local target_dir="$ZSH_PLUGINS_DIR/$name"
 
-    if [[ -d "$target_dir" ]]; then
+    # 检查 git 仓库完整性而非仅目录存在
+    if [[ -f "$target_dir/.git/config" ]]; then
+        echo -e "${GREEN}插件 $name 已存在，跳过。${NC}"
         return 0
+    fi
+
+    # 如果目录存在但不完整，先删除
+    if [[ -d "$target_dir" ]]; then
+        echo "清理不完整的插件目录: $name"
+        rm -rf "$target_dir"
     fi
 
     echo -e "${GREEN}正在下载插件: $name...${NC}"

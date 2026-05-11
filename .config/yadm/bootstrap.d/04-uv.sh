@@ -1,4 +1,7 @@
 #!/bin/bash
+# ABOUTME: 安装 uv - Astral 的快速 Python 包管理器
+# ABOUTME: 支持 curl/wget 下载，自动添加到 PATH
+
 set -euo pipefail
 
 : "${GREEN:=\033[0;32m}"
@@ -44,6 +47,7 @@ main() {
         exit 1
     fi
 
+    # 注意: 直接执行远程脚本存在 MITM 风险，这是 uv 官方推荐方式
     if check_command curl; then
         curl -fsSL https://astral.sh/uv/install.sh | sh
     else
