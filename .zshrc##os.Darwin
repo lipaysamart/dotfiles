@@ -21,6 +21,7 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(direnv hook zsh)"
 
 # User configuration
 alias ll="ls -lah"
@@ -33,5 +34,3 @@ alias k="/opt/homebrew/bin/kubectl"
 alias pi='nocorrect pi'
 
 ulimit -n unlimited
-
-
