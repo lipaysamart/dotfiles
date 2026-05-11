@@ -14,16 +14,10 @@ background-opacity = 1.0
 background-blur = 100
 unfocused-split-opacity = 0.95
 unfocused-split-fill = #1e2030
-theme = Zenwritten Dark
-foreground = #cad3f5
-selection-background = #5b6078
-selection-foreground = #cad3f5
-selection-invert-fg-bg = true
-cursor-color = #f4dbd6
-cursor-text = #24273a
+theme = light:Zenwritten Light,dark:Zenwritten Dark
 font-size = 14
 font-thicken = true
-font-family = monospace
+font-family = "JetBrainsMono Nerd Font"
 adjust-cursor-thickness = 1
 keybind = super+left=previous_tab
 keybind = super+right=next_tab
