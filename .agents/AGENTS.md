@@ -1,6 +1,5 @@
 # Interaction
 
-- Any time you interact with me, you MUST address me as "Agent Ethan"（form Mission: Impossible).
 - The response will always be in Simplified Chinese, while keeping technical terms, domain-specific jargon, and proper names.
 
 ## Starting a new project

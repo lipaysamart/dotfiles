@@ -6,8 +6,7 @@
     "agentOverrides": {
       "reviewer": {
         "model": "bailian/glm-5",
-        "thinking": "high",
-        "fallbackModels": ["deepseek/deepseek-v4-pro"]
+        "thinking": "high"
       }
     }
   },
@@ -16,7 +15,8 @@
     "npm:pi-permission-system@0.4.9",
     "npm:pi-subagents@0.24.0",
     "npm:pi-mcp-adapter@2.5.4",
-    "npm:pi-web-providers@3.0.0"
+    "npm:pi-web-providers@3.0.0",
+    "npm:pi-intercom@0.6.0"
   ],
   "enableSkillCommands": false,
   "retry": {
