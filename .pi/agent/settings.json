@@ -1,12 +1,28 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "metis",
-  "defaultModel": "metis-coder",
+  "defaultProvider": "bailian",
+  "defaultModel": "glm-5",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "bailian/glm-5",
+        "model": "deepseek/deepseek-v4-pro",
         "thinking": "high"
+      },
+      "oracle": {
+        "model": "metis/metis-coder-max"
+      },
+      "planner": {
+        "model": "bailian/glm-5"
+      },
+      "researcher": {
+        "model": "metis/metis-coder-max"
+      },
+      "worker": {
+        "model": "metis/metis-coder",
+        "thinking": "medium"
+      },
+      "scout": {
+        "model": "bailian/qwen3-coder-plus"
       }
     }
   },
@@ -17,7 +33,7 @@
     "npm:pi-mcp-adapter@2.5.4",
     "npm:pi-web-providers@3.0.0",
     "npm:pi-intercom@0.6.0",
-    "npm:pi-powerline-footer"
+    "npm:pi-powerline-footer@0.5.4"
   ],
   "enableSkillCommands": false,
   "retry": {
@@ -35,10 +51,10 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "powerline": {
     "preset": "default",
-    "fixedEditor": true,
+    "fixedEditor": false,
     "customItems": [],
     "mouseScroll": false
   },
@@ -63,7 +79,7 @@
   },
   "workingVibe": "star trek",
   "workingVibeMode": "file",
-  "workingVibeModel": "metis/metis-coder-max",
+  "workingVibeModel": "bailian/glm-5",
   "workingVibeFallback": "Working",
   "workingVibeRefreshInterval": 30,
   "workingVibeMaxLength": 65
