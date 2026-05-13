@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "bailian",
-  "defaultModel": "glm-5",
+  "defaultProvider": "metis",
+  "defaultModel": "metis-coder",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
@@ -16,7 +16,8 @@
     "npm:pi-subagents@0.24.0",
     "npm:pi-mcp-adapter@2.5.4",
     "npm:pi-web-providers@3.0.0",
-    "npm:pi-intercom@0.6.0"
+    "npm:pi-intercom@0.6.0",
+    "npm:pi-powerline-footer"
   ],
   "enableSkillCommands": false,
   "retry": {
@@ -34,5 +35,36 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "medium",
+  "powerline": {
+    "preset": "default",
+    "fixedEditor": true,
+    "customItems": [],
+    "mouseScroll": false
+  },
+  "powerlineShortcuts": {
+    "stashHistory": "ctrl+alt+h",
+    "copyEditor": "ctrl+alt+c",
+    "cutEditor": "ctrl+alt+x",
+    "jumpPreviousUserMessage": "ctrl+shift+u",
+    "jumpNextUserMessage": "ctrl+shift+i",
+    "jumpPreviousLlmMessage": "ctrl+alt+,",
+    "jumpNextLlmMessage": "ctrl+alt+.",
+    "jumpChatBottom": "ctrl+shift+g",
+    "scrollChatUp": "cmd+up",
+    "scrollChatDown": "cmd+down",
+    "editorStart": "cmd+shift+up",
+    "editorEnd": "cmd+shift+down"
+  },
+  "bashMode": {
+    "toggleShortcut": "ctrl+shift+b",
+    "transcriptMaxLines": 2000,
+    "transcriptMaxBytes": 524288
+  },
+  "workingVibe": "star trek",
+  "workingVibeMode": "file",
+  "workingVibeModel": "metis/metis-coder-max",
+  "workingVibeFallback": "Working",
+  "workingVibeRefreshInterval": 30,
+  "workingVibeMaxLength": 65
 }

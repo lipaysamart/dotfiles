@@ -23,6 +23,29 @@
         }
       ]
     },
+    "metis": {
+      "baseUrl": "http://zsgw.sjdistributor.com:40000/v1",
+      "api": "openai-completions",
+      "apiKey": "METIS_API_KEY",
+      "models": [
+        {
+          "id": "metis-coder",
+          "name": "Metis Coder",
+          "contextWindow": 200000,
+          "maxTokens": 164000,
+          "input": ["text"],
+          "reasoning": true
+        },
+        {
+          "id": "metis-coder-max",
+          "name": "Metis Coder Max",
+          "contextWindow": 200000,
+          "maxTokens": 164000,
+          "input": ["text"],
+          "reasoning": false
+        }
+      ]
+    },
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
       "api": "openai-completions",
