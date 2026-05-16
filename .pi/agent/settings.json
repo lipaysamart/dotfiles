@@ -1,21 +1,23 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "bailian",
-  "defaultModel": "glm-5",
+  "defaultProvider": "metis",
+  "defaultModel": "metis-coder",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "deepseek/deepseek-v4-pro",
+        "model": "deepseek/deepseek-v4-flash",
         "thinking": "high"
       },
       "oracle": {
-        "model": "metis/metis-coder-max"
+        "model": "metis/metis-coder",
+        "thinking": "high"
       },
       "planner": {
         "model": "bailian/glm-5"
       },
       "researcher": {
-        "model": "metis/metis-coder-max"
+        "model": "metis/metis-coder",
+        "thinking": "high"
       },
       "worker": {
         "model": "metis/metis-coder",
@@ -29,7 +31,7 @@
   "packages": [
     "pi-skills",
     "npm:pi-permission-system@0.4.9",
-    "npm:pi-subagents@0.24.0",
+    "npm:pi-subagents@0.24.3",
     "npm:pi-mcp-adapter@2.5.4",
     "npm:pi-web-providers@3.0.0",
     "npm:pi-intercom@0.6.0",
