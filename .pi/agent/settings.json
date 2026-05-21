@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.74.1",
-  "defaultProvider": "metis",
-  "defaultModel": "metis-coder",
+  "lastChangelogVersion": "0.75.4",
+  "defaultProvider": "bailian",
+  "defaultModel": "glm-5",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
@@ -9,19 +9,16 @@
         "thinking": "high"
       },
       "oracle": {
-        "model": "metis/metis-coder",
-        "thinking": "high"
+        "model": "bailian/glm-5"
       },
       "planner": {
         "model": "bailian/glm-5"
       },
       "researcher": {
-        "model": "metis/metis-coder",
-        "thinking": "high"
+        "model": "bailian/glm-5"
       },
       "worker": {
-        "model": "metis/metis-coder",
-        "thinking": "medium"
+        "model": "bailian/glm-5"
       },
       "scout": {
         "model": "bailian/qwen3-coder-plus"
@@ -53,7 +50,7 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "powerline": {
     "preset": "default",
     "fixedEditor": false,
