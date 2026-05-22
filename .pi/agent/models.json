@@ -23,6 +23,53 @@
         }
       ]
     },
+    "nvidia": {
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "api": "openai-completions",
+      "apiKey": "NVIDIA_API_KEY",
+      "models": [
+        {
+          "id": "deepseek-ai/deepseek-v4-flash",
+          "name": "Deepseek v4 Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 164000,
+          "input": ["text"],
+          "reasoning": true
+        },
+        {
+          "id": "deepseek-ai/deepseek-v4-pro",
+          "name": "Deepseek v4 Pro",
+          "contextWindow": 1000000,
+          "maxTokens": 164000,
+          "input": ["text"],
+          "reasoning": false
+        },
+        {
+          "id": "google/gemma-4-31b-it",
+          "name": "Gemma 4",
+          "contextWindow": 256000,
+          "maxTokens": 164000,
+          "input": ["text","image"],
+          "reasoning": true
+        },
+        {
+          "id": "moonshotai/kimi-k2.6",
+          "name": "Kimi 2.6",
+          "contextWindow": 256000,
+          "maxTokens": 164000,
+          "input": ["text","image"],
+          "reasoning": true
+        },
+        {
+          "id": "z-ai/glm-5.1",
+          "name": "GLM 5-1",
+          "contextWindow": 256000,
+          "maxTokens": 164000,
+          "input": ["text"],
+          "reasoning": true
+        }
+      ]
+    },
     "metis": {
       "baseUrl": "http://zsgw.sjdistributor.com:40000/v1",
       "api": "openai-completions",
