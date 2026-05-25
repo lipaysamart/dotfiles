@@ -1,28 +1,5 @@
 {
   "providers": {
-    "bailian": {
-      "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
-      "api": "openai-completions",
-      "apiKey": "BAILIAN_API_KEY",
-      "models": [
-        {
-          "id": "glm-5",
-          "name": "GLM 5",
-          "contextWindow": 200000,
-          "maxTokens": 164000,
-          "input": ["text"],
-          "reasoning": false
-        },
-        {
-          "id": "qwen3-coder-plus",
-          "name": "Qwen3 Coder Plus",
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "input": ["text"],
-          "reasoning": false
-        }
-      ]
-    },
     "nvidia": {
       "baseUrl": "https://integrate.api.nvidia.com/v1",
       "api": "openai-completions",

@@ -1,27 +1,29 @@
 {
-  "lastChangelogVersion": "0.75.4",
-  "defaultProvider": "nvidia",
-  "defaultModel": "deepseek-ai/deepseek-v4-flash",
+  "lastChangelogVersion": "0.75.5",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4-flash",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "deepseek/deepseek-v4-flash",
+        "model": "opencode-go/deepseek-v4-pro",
         "thinking": "high"
       },
       "oracle": {
-        "model": "bailian/glm-5"
+        "model": "opencode-go/glm-5.1",
+        "thinking": "high"
       },
       "planner": {
-        "model": "bailian/glm-5"
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "medium"
       },
       "researcher": {
-        "model": "bailian/glm-5"
+        "model": "opencode-go/kimi-k2.6"
       },
       "worker": {
-        "model": "bailian/glm-5"
+        "model": "opencode-go/deepseek-v4-flash"
       },
       "scout": {
-        "model": "bailian/qwen3-coder-plus"
+        "model": "opencode-go/qwen3.6-plus"
       }
     }
   },
@@ -34,7 +36,8 @@
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.5.4",
     "npm:@juicesharp/rpiv-ask-user-question@1.12.0",
-    "npm:@juicesharp/rpiv-todo@1.12.0"
+    "npm:@juicesharp/rpiv-todo@1.12.0",
+    "npm:@juicesharp/rpiv-btw@1.12.0"
   ],
   "enableSkillCommands": false,
   "retry": {
