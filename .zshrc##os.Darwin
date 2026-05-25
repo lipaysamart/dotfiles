@@ -34,3 +34,8 @@ alias k="/opt/homebrew/bin/kubectl"
 alias pi='nocorrect pi'
 
 ulimit -n unlimited
+
+# Load local configuration
+if [[ -f ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+fi

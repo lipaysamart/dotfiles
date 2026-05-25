@@ -1,0 +1,11 @@
+# Sensitive local configuration files
+.zshrc.local
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db

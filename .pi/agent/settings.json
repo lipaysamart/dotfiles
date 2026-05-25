@@ -20,7 +20,7 @@
         "model": "opencode-go/kimi-k2.6"
       },
       "worker": {
-        "model": "opencode-go/deepseek-v4-flash"
+        "model": "opencode-go/qwen3.6-plus"
       },
       "scout": {
         "model": "opencode-go/qwen3.6-plus"

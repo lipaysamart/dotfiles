@@ -1,22 +1,25 @@
 {
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "proxy": "",
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
+    "pi-acp": {
+      "type": "registry"
+    }
+  },
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "git_panel": {
-    "dock": "right"
-  },
-  "agent_servers": {
-    "OpenCode": {
-      "type": "custom",
-      "command": "opencode",
-      "args": ["acp"]
-    }
+    "dock": "right",
   },
   "context_servers": {
     "mcp-server-context7": {
@@ -24,82 +27,29 @@
       "args": ["-y", "@upstash/context7-mcp"],
       "remote": false,
       "env": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      }
-    }
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}",
+      },
+    },
   },
 
   "load_direnv": "shell_hook",
 
   "disable_ai": false,
   "language_models": {
+    "opencode": {
+      "show_zen_models": false,
+      "show_free_models": true,
+      "show_go_models": false
+    },
     "openai_compatible": {
-      "Qwen": {
-        "api_url": "https://coding.dashscope.aliyuncs.com/v1",
-        "available_models": [
-          {
-            "name": "qwen3-coder-plus",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true
-            }
-          },
-
-          {
-            "name": "MiniMax-M2.5",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true
-            }
-          },
-          {
-            "name": "glm-5",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true
-            }
-          },
-          {
-            "name": "kimi-k2.5",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true
-            }
-          }
-        ]
-      }
-    }
+      },
   },
   "tabs": {
     "file_icons": true,
     "git_status": true,
     "activate_on_close": "history",
     "show_close_button": "hover",
-    "show_diagnostics": "all"
+    "show_diagnostics": "all",
   },
   "scrollbar": {
     "show": "auto",
@@ -107,7 +57,7 @@
     "git_diff": true,
     "search_results": true,
     "selected_symbol": true,
-    "diagnostics": "all"
+    "diagnostics": "all",
   },
   "vertical_scroll_margin": 5,
   "format_on_save": "on",
@@ -116,46 +66,52 @@
     "coloring": "indent_aware",
     "line_width": 1,
     "active_line_width": 1,
-    "background_coloring": "indent_aware"
+    "background_coloring": "indent_aware",
   },
   "lsp": {
     "vtsls": {
       "settings": {
         "typescript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
+            "enabled": "always",
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        }
+            "enabled": "always",
+          },
+        },
       },
-      "enable_lsp_tasks": true
+      "enable_lsp_tasks": true,
     },
     "live-server": {
       "initialization_options": {
         "lazy": true,
         "start_port": 5000,
-        "public": false
-      }
-    }
+        "public": false,
+      },
+    },
   },
   "languages": {
     "YAML": {
       "tab_size": 2,
       "hard_tabs": false,
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "Go": {
-      "language_servers": ["gopls"]
-    }
+      "language_servers": ["gopls"],
+    },
   },
   "base_keymap": "VSCode",
   "agent": {
+    "thinking_display": "always_collapsed",
+    "inline_assistant_model": {
+      "provider": "opencode",
+      "model": "free/nemotron-3-super-free",
+      "enable_thinking": false
+    },
     "tool_permissions": {
-      "default": "allow"
+      "default": "allow",
     },
     "profiles": {
       "minimal": {
@@ -166,10 +122,10 @@
           "Context7": {
             "tools": {
               "query-docs": false,
-              "resolve-library-id": false
-            }
-          }
-        }
+              "resolve-library-id": false,
+            },
+          },
+        },
       },
       "ask": {
         "name": "Ask",
@@ -184,7 +140,7 @@
           "read_file": true,
           "open": true,
           "grep": true,
-          "thinking": true
+          "thinking": true,
         },
         "enable_all_context_servers": false,
         "context_servers": {
@@ -196,31 +152,31 @@
               "get_project_registries": true,
               "get_item_examples_from_registries": true,
               "get_audit_checklist": true,
-              "get_add_command_for_items": true
-            }
+              "get_add_command_for_items": true,
+            },
           },
           "mcp-server-context7": {
             "tools": {
               "resolve-library-id": true,
-              "query-docs": true
-            }
-          }
-        }
-      }
+              "query-docs": true,
+            },
+          },
+        },
+      },
     },
     "default_profile": "minimal",
     "default_model": {
-      "provider": "Qwen",
-      "model": "glm-5"
+      "provider": "opencode",
+      "model": "free/big-pickle",
     },
     "button": true,
     "dock": "left",
     "default_width": 640,
-    "default_height": 640
+    "default_height": 640,
   },
   "toolbar": {
     "breadcrumbs": true,
-    "quick_actions": true
+    "quick_actions": true,
   },
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
@@ -232,26 +188,26 @@
     "working_directory": "current_project_directory",
     "blinking": "terminal_controlled",
     "copy_on_select": true,
-    "cursor_shape": "block"
+    "cursor_shape": "block",
   },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "ssh_connections": [
     {
       "host": "homelab",
       "args": [],
       "projects": [],
-      "upload_binary_over_ssh": true
+      "upload_binary_over_ssh": true,
     },
     {
       "host": "syslog",
       "args": [],
-      "projects": []
-    }
+      "projects": [],
+    },
   ],
 
   "icon_theme": "Catppuccin Latte",
@@ -260,10 +216,10 @@
   "preferred_line_length": 80,
   "soft_wrap": "editor_width",
   "ui_font_size": 16,
-  "buffer_font_size": 15.0,
+  "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
     "light": "GitHub Dark Colorblind",
-    "dark": "GitHub Dark Colorblind"
-  }
+    "dark": "GitHub Dark Colorblind",
+  },
 }

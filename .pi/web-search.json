@@ -2,8 +2,8 @@
   "exaApiKey": "$EXA_API_KEY",
   "provider": "exa",
   "chromeProfile": "Profile 2",
-  "allowBrowserCookies": false,
-  "summaryModel": "opencode-go/deepseek-v4-flash",
+  "allowBrowserCookies": true,
+  "summaryModel": "opencode-go/deepseek-v4-flush",
   "workflow": "summary-review",
   "curatorTimeoutSeconds": 20,
   "githubClone": {

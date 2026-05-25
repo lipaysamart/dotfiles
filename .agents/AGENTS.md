@@ -71,6 +71,12 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
+# Troubleshooting
+
+## Network timeout
+
+For network timeout issues, use temporary proxy: `export https_proxy=http://127.0.0.1:7897` (applies to: GitHub repos, web_search/fetch_content, Hugging Face, npm registry, bun/pip install)
+
 # Getting help
 
 - If you're having trouble with something, it's ok to stop and ask for help. Especially if it's something your human might be better at.
