@@ -86,5 +86,17 @@
   "workingVibeModel": "bailian/glm-5",
   "workingVibeFallback": "Working",
   "workingVibeRefreshInterval": 30,
-  "workingVibeMaxLength": 65
+  "workingVibeMaxLength": 65,
+  "enabledModels": [
+    "opencode-go/deepseek-v4-flash",
+    "opencode-go/deepseek-v4-pro",
+    "opencode-go/glm-5.1",
+    "opencode-go/qwen3.6-plus",
+    "nvidia/google/gemma-4-31b-it",
+    "nvidia/deepseek-ai/deepseek-v4-pro",
+    "nvidia/moonshotai/kimi-k2.6",
+    "nvidia/z-ai/glm-5.1",
+    "metis/metis-coder",
+    "metis/metis-coder-max"
+  ]
 }
