@@ -20,10 +20,10 @@
         "model": "opencode-go/kimi-k2.6"
       },
       "worker": {
-        "model": "opencode-go/qwen3.6-plus"
+        "model": "opencode-go/deepseek-v4-pro"
       },
       "scout": {
-        "model": "opencode-go/qwen3.6-plus"
+        "model": "opencode-go/deepseek-v4-pro"
       }
     }
   },
@@ -37,7 +37,7 @@
     "npm:pi-powerline-footer@0.5.4",
     "npm:@juicesharp/rpiv-ask-user-question@1.12.0",
     "npm:@juicesharp/rpiv-todo@1.12.0",
-    "npm:@juicesharp/rpiv-btw@1.12.0"
+    "npm:@capyup/pi-goal@0.6.0"
   ],
   "enableSkillCommands": false,
   "retry": {
