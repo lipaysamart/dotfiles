@@ -5,7 +5,7 @@
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "opencode-go/deepseek-v4-pro",
+        "model": "opencode-go/glm-5.1",
         "thinking": "high"
       },
       "oracle": {
@@ -13,7 +13,7 @@
         "thinking": "high"
       },
       "planner": {
-        "model": "opencode-go/deepseek-v4-flash",
+        "model": "opencode-go/deepseek-v4-pro",
         "thinking": "medium"
       },
       "researcher": {
@@ -23,7 +23,7 @@
         "model": "opencode-go/deepseek-v4-pro"
       },
       "scout": {
-        "model": "opencode-go/deepseek-v4-pro"
+        "model": "opencode-go/qwen3.6-plus"
       }
     }
   },
@@ -97,6 +97,8 @@
     "nvidia/moonshotai/kimi-k2.6",
     "nvidia/z-ai/glm-5.1",
     "metis/metis-coder",
-    "metis/metis-coder-max"
+    "metis/metis-coder-max",
+    "metis/metis-coder-plus",
+    "metis/metis-coder-ultra"
   ]
 }
