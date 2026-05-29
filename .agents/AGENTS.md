@@ -16,10 +16,12 @@
 
 Before implementing:
 
-- State your assumptions explicitly. If uncertain, ask.
+- If the user is asking a question, don't write code — explain the answer.
+- If you can't tell whether the user wants advice or execution, ask — don't assume.
 - If multiple interpretations exist, present them - don't pick silently.
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
+- If the user's intent is exploratory or uncertain, do not create, edit, or delete anything.
 
 ## Simplicity First
 
@@ -48,6 +50,7 @@ When your changes create orphans:
 
 - Remove imports/variables/functions that YOUR changes made unused.
 - Don't remove pre-existing dead code unless asked.
+- Avoid committing ephemeral dev notes—such as plan.md, research.md, or context.md—to git. Keep the repository focused on the actual code.
 
 The test: Every changed line should trace directly to the user's request.
 

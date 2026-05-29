@@ -1,7 +1,7 @@
 {
   "defaultPolicy": {
     "tools": "allow",
-    "bash": "allow",
+    "bash": "ask",
     "mcp": "allow",
     "skills": "allow",
     "special": "allow"
@@ -14,10 +14,12 @@
     "grep": "allow",
     "find": "allow",
     "ls": "allow",
-    "mcp": "allow"
+    "mcp": "allow",
+    "bash": "ask"
   },
 
   "bash": {
+    "*": "allow",
     "git push --force*": "deny",
     "wget *| bash*": "deny",
     "wget *| bash*": "deny",
@@ -39,6 +41,6 @@
 
   "special": {
     "doom_loop": "deny",
-    "external_directory": "allow"
+    "external_directory": "ask"
   }
 }

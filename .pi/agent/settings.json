@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.75.5",
+  "lastChangelogVersion": "0.77.0",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "subagents": {
@@ -29,7 +29,7 @@
   },
   "packages": [
     "pi-skills",
-    "npm:pi-permission-system@0.4.9",
+    "npm:pi-permission-system@0.6.0",
     "npm:pi-subagents@0.25.0",
     "npm:pi-mcp-adapter@2.5.4",
     "npm:pi-web-access@0.10.7",
@@ -92,13 +92,10 @@
     "opencode-go/deepseek-v4-pro",
     "opencode-go/glm-5.1",
     "opencode-go/qwen3.6-plus",
-    "nvidia/google/gemma-4-31b-it",
-    "nvidia/deepseek-ai/deepseek-v4-pro",
-    "nvidia/moonshotai/kimi-k2.6",
-    "nvidia/z-ai/glm-5.1",
     "metis/metis-coder",
     "metis/metis-coder-max",
     "metis/metis-coder-plus",
-    "metis/metis-coder-ultra"
+    "metis/metis-coder-ultra",
+    "nvidia/google/gemma-4-31b-it"
   ]
 }
