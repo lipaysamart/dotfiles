@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-permission-system/main/schemas/permissions.schema.json",
+
+  // Runtime knobs
+  "debugLog": false,
+  "permissionReviewLog": true,
+  "yoloMode": false,
+  "piInfrastructureReadPaths": [],
+
+  // Flat permission policy
+  "permission": {
+    "*": "ask", // universal fallback
+    "write": {
+      "*": "allow"
+    },
+
+    "read": {
+      "*": "allow",
+      "~/.ssh/**": "deny",
+      "~/.gnupg/**": "deny",
+      "~/.aws/**": "deny",
+      "~/.aliyun/**": "deny",
+      "~/.config/gh/**": "deny",
+      "~/.git-credentials": "deny",
+      "~/.docker/config.json": "deny",
+      "~/.kube/**": "deny",
+      "~/.npmrc": "deny",
+      "~/.npm/**": "deny",
+      "~/.pypirc": "deny",
+      "~/.gem/credentials)": "deny",
+      "~/Library/Keychains/**": "deny"
+    },
+
+    "edit": {
+      "*": "allow",
+      "~/.bashrc": "deny",
+      "~/.zshrc": "deny",
+      "~/.zshrc.local": "deny",
+      "~/.ssh/**": "deny"
+    },
+
+    "bash": {
+      "*": "allow",
+      "git push --force*": "deny",
+      "wget *| bash*": "deny",
+      "git push *--force*": "deny",
+      "git reset --hard*": "deny",
+      "rm -rf": "deny",
+      "mkfs": "deny",
+      "dd": "deny"
+    },
+
+    "mcp": {
+      "*": "allow"
+    },
+
+    "skill": {
+      "*": "allow"
+    },
+
+    "external_directory": {
+      "*": "ask",
+      "~/*": "allow",
+      "/tmp": "allow"
+    }
+  }
+}
