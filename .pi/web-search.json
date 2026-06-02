@@ -1,28 +1,8 @@
 {
-  "exaApiKey": "$EXA_API_KEY",
-  "provider": "exa",
-  "chromeProfile": "Profile 2",
-  "allowBrowserCookies": true,
-  "summaryModel": "opencode-go/deepseek-v4-flush",
-  "workflow": "summary-review",
-  "curatorTimeoutSeconds": 20,
+  "provider": "auto",
+  "curatorTimeoutSeconds": 10,
+  "summaryModel": "opencode-go/deepseek-v4-flash",
   "githubClone": {
-    "enabled": true,
-    "maxRepoSizeMB": 350,
-    "cloneTimeoutSeconds": 60,
-    "clonePath": "/tmp/pi-github-repos"
-  },
-  "youtube": {
-    "enabled": false,
-    "preferredModel": "gemini-3-flash-preview"
-  },
-  "video": {
-    "enabled": false,
-    "preferredModel": "gemini-3-flash-preview",
-    "maxSizeMB": 50
-  },
-  "shortcuts": {
-    "curate": "ctrl+shift+s",
-    "activity": "ctrl+shift+w"
+    "cloneTimeoutSeconds": 60
   }
 }

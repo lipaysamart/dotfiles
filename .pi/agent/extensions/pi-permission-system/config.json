@@ -9,13 +9,8 @@
 
   // Flat permission policy
   "permission": {
-    "*": "ask", // universal fallback
-    "write": {
-      "*": "allow"
-    },
-
+    "*": "allow", // universal fallback
     "read": {
-      "*": "allow",
       "~/.ssh/**": "deny",
       "~/.gnupg/**": "deny",
       "~/.aws/**": "deny",
@@ -32,7 +27,6 @@
     },
 
     "edit": {
-      "*": "allow",
       "~/.bashrc": "deny",
       "~/.zshrc": "deny",
       "~/.zshrc.local": "deny",
@@ -40,7 +34,6 @@
     },
 
     "bash": {
-      "*": "allow",
       "git push --force*": "deny",
       "wget *| bash*": "deny",
       "git push *--force*": "deny",
@@ -50,18 +43,10 @@
       "dd": "deny"
     },
 
-    "mcp": {
-      "*": "allow"
-    },
-
-    "skill": {
-      "*": "allow"
-    },
-
     "external_directory": {
       "*": "ask",
       "~/*": "allow",
-      "/tmp": "allow"
+      "/tmp/*": "allow"
     }
   }
 }
