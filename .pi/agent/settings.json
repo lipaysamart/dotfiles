@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.78.0",
-  "defaultProvider": "metis",
-  "defaultModel": "metis-coder-max",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4-flash",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
