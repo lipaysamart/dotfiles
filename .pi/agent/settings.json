@@ -5,37 +5,55 @@
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "opencode-go/glm-5.1",
-        "thinking": "high"
+        "model": "metis/metis-coder-ultra",
+        "thinking": "high",
+        "fallbackModels": [
+          "opencode-go/qwen3.7-max"
+        ]
       },
       "oracle": {
-        "model": "opencode-go/glm-5.1",
-        "thinking": "high"
+        "model": "metis/metis-coder-ultra",
+        "thinking": "high",
+        "fallbackModels": [
+          "opencode-go/glm-5.1"
+        ]
       },
       "planner": {
-        "model": "opencode-go/deepseek-v4-pro",
-        "thinking": "medium"
+        "model": "metis/metis-coder-ultra",
+        "thinking": "medium",
+        "fallbackModels": [
+          "opencode-go/deepseek-v4-pro"
+        ]
       },
       "researcher": {
-        "model": "opencode-go/kimi-k2.6"
+        "model": "metis/metis-coder-plus",
+        "fallbackModels": [
+          "opencode-go/deepseek-v4-flash"
+        ]
       },
       "worker": {
-        "model": "opencode-go/deepseek-v4-pro"
+        "model": "metis/metis-coder-ultra",
+        "fallbackModels": [
+          "opencode-go/deepseek-v4-pro"
+        ]
       },
       "scout": {
-        "model": "opencode-go/qwen3.6-plus"
+        "model": "metis/metis-coder",
+        "thinking": "medium",
+        "fallbackModels": [
+          "opencode-go/deepseek-v4-pro"
+        ]
       }
     }
   },
   "packages": [
     "pi-skills",
-    "npm:pi-subagents@0.27.0",
+    "npm:pi-subagents@0.28.0",
     "npm:pi-web-access@0.10.7",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.5.6",
     "npm:@juicesharp/rpiv-ask-user-question@1.17.1",
     "npm:@juicesharp/rpiv-todo@1.17.1",
-    "npm:@capyup/pi-goal@0.6.0",
     "npm:@gotgenes/pi-permission-system@8.3.0"
   ],
   "enableSkillCommands": false,
@@ -90,11 +108,10 @@
     "opencode-go/deepseek-v4-flash",
     "opencode-go/deepseek-v4-pro",
     "opencode-go/glm-5.1",
-    "opencode-go/qwen3.6-plus",
     "metis/metis-coder",
     "metis/metis-coder-max",
     "metis/metis-coder-plus",
     "metis/metis-coder-ultra",
-    "nvidia/google/gemma-4-31b-it"
+    "opencode-go/qwen3.7-max"
   ]
 }

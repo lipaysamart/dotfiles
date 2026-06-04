@@ -4,7 +4,7 @@
  * 在关键代理事件时播放兽人苦工语音：
  * - session_start           → 会话启动
  * - agent_end                → 任务完成
- * - permissions:decision     → 需要权限 (调用 permission-system 弹窗时)
+ * - tool_call(ask_user_question) → 用户提问时
  * - tool_result(todo, add)   → Todo 生成
  *
  * 语音来源: PeonPing/og-packs
@@ -25,14 +25,6 @@ const SOUNDS: Record<string, Array<{ file: string; label: string }>> = {
 	"task.complete": [
 		{ file: "PeonWorkComplete.wav", label: "Work complete." },
 		{ file: "PeonYes1.wav", label: "I can do that." },
-	],
-	"permission.required": [
-		{ file: "PeonWhat2.wav", label: "Hmm?" },
-		{ file: "PeonWhat3.wav", label: "What you want?" },
-	],
-	"todo.created": [
-		{ file: "PeonYes1.wav", label: "I can do that." },
-		{ file: "PeonAngry1.wav", label: "Whaaat?" },
 	],
 	"question.asked": [
 		{ file: "PeonWhat2.wav", label: "Hmm?" },
@@ -94,6 +86,9 @@ function playRandomSound(key: string): void {
 
 // === 扩展注册 ===
 export default function (pi: ExtensionAPI) {
+	// 子 agent 进程中静默，不播放任何声音
+	if (process.env.PI_SUBAGENT_CHILD === "1") return;
+
 	// 1. 会话启动
 	pi.on("session_start", () => {
 		playRandomSound("session.start");
@@ -104,35 +99,10 @@ export default function (pi: ExtensionAPI) {
 		playRandomSound("task.complete");
 	});
 
-	// 3. 需要权限 (监听 permission-system 的决策事件，有用户交互时播报)
-	pi.events.on("permissions:decision", (data) => {
-		const event = data as {
-			surface: string;
-			value: string;
-			result: "allow" | "deny";
-			resolution: string;
-		};
-		// resolution 以 user_ 开头表示触发过弹窗交互
-		if (event.result === "deny" || event.resolution.startsWith("user_")) {
-			playRandomSound("permission.required");
-		}
-	});
-
-	// 4. Todo 生成 (todo 工具的 add action)
-	pi.on("tool_result", async (event) => {
-		if (event.toolName === "todo") {
-			const input = event.input as { action?: string };
-			if (input.action === "add") {
-				playRandomSound("todo.created");
-			}
-		}
-	});
-
-	// 5. ask_user_question 工具被调用时触发
-	pi.on("tool_call", async (event) => {
+	// 3. ask_user_question 提示音
+	pi.on("tool_call", (event) => {
 		if (event.toolName === "ask_user_question") {
 			playRandomSound("question.asked");
 		}
-		return undefined;
 	});
 }
