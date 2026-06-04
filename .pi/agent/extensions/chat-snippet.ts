@@ -31,7 +31,7 @@ function snippetPath(name: string): string {
 
 function validateName(name: string): void {
   if (!/^[A-Za-z0-9_-]+$/.test(name)) {
-    throw new Error(`非法名称 "${name}"，仅允许英文字母、数字、下划线和连字符`);
+    throw new Error(`Invalid name "${name}", only letters, digits, hyphens and underscores allowed`);
   }
 }
 
@@ -53,7 +53,7 @@ async function readSnippet(name: string): Promise<string> {
   try {
     return await readFile(filePath, "utf-8");
   } catch (e: unknown) {
-    if (isNotFound(e)) throw new Error(`片段 "${name}" 不存在`);
+    if (isNotFound(e)) throw new Error(`Snippet "${name}" not found`);
     throw e;
   }
 }
@@ -73,29 +73,51 @@ async function handleInsert(name: string, ctx: ExtensionCommandContext): Promise
   validateName(name);
   const content = await readSnippet(name);
   if (content.trim() === "") {
-    ctx.ui.notify(`片段 "${name}" 为空`, "warning");
+    ctx.ui.notify(`Snippet "${name}" is empty`, "warning");
     return;
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (ctx.ui as any).setEditorText(content);
-  ctx.ui.notify(`已插入片段 "${name}"`, "info");
+  ctx.ui.notify(`Inserted snippet "${name}"`, "info");
 }
 
 async function handleSelect(ctx: ExtensionCommandContext): Promise<void> {
   const names = await listNames();
-  if (names.length === 0) {
-    ctx.ui.notify("没有片段\n请在 ~/.pi/chat-snippet/ 创建 .md 文件", "info");
+  const hasSnippets = names.length > 0;
+
+  const menuItems = hasSnippets
+    ? [`📋 Insert snippet (${names.length})`, "✏️ Create / edit snippet", "📄 List all snippets"]
+    : ["✏️ Create / edit snippet", "📄 List all snippets"];
+
+  const action = await ctx.ui.select("chat-snippet", menuItems);
+  if (action === undefined) return; // cancelled
+
+  const idx = menuItems.indexOf(action);
+
+  // "📄 List all snippets" — last item
+  if (idx === menuItems.length - 1) {
+    await handleList(ctx);
     return;
   }
-  const choice = await ctx.ui.select("选择片段", names);
-  if (choice === undefined) return; // 用户取消
+
+  // "✏️ Create / edit snippet" — second item (or first when no snippets)
+  if (action.startsWith("✏️")) {
+    const name = await ctx.ui.input("Snippet name (letters, digits, hyphens, underscores)");
+    if (name === undefined) return;
+    await handleAdd(name, ctx);
+    return;
+  }
+
+  // "📋 Insert snippet" — first item (only present when hasSnippets)
+  const choice = await ctx.ui.select("Pick a snippet", names);
+  if (choice === undefined) return;
   await handleInsert(choice, ctx);
 }
 
 async function handleList(ctx: ExtensionCommandContext): Promise<void> {
   const names = await listNames();
   if (names.length === 0) {
-    ctx.ui.notify("没有片段\n请在 ~/.pi/chat-snippet/ 创建 .md 文件", "info");
+    ctx.ui.notify("No snippets\nCreate .md files in ~/.pi/chat-snippet/", "info");
     return;
   }
   ctx.ui.notify(names.join("\n"), "info");
@@ -107,12 +129,12 @@ async function handleAdd(name: string, ctx: ExtensionCommandContext): Promise<vo
   try {
     prefill = await readSnippet(name);
   } catch {
-    // 片段不存在 → 新建模式
+    // snippet doesn't exist → create mode
   }
-  const content = await ctx.ui.editor(`编辑片段 ${name}`, prefill);
-  if (content === undefined) return; // 用户取消
+  const content = await ctx.ui.editor(`Edit snippet: ${name}`, prefill);
+  if (content === undefined) return; // cancelled
   await writeSnippet(name, content);
-  ctx.ui.notify(`已保存片段 "${name}"`, "info");
+  ctx.ui.notify(`Saved snippet "${name}"`, "info");
 }
 
 // ── 参数解析 ──
@@ -141,11 +163,11 @@ function parseArgs(args: string): { action: Action; name?: string } {
 
 export default function (pi: ExtensionAPI) {
   pi.registerCommand("chat-snippet", {
-    description: "聊天片段 — /chat-snippet 选择，/chat-snippet add <name> 创建，/chat-snippet insert <name> 插入，/chat-snippet list 列出",
-    argumentHint: "[name] | add <name> | insert <name> | list",
+    description: "Chat snippets — press Enter after /chat-snippet to open menu, or type subcommands: add/insert/list/name",
+    argumentHint: "[Enter for menu] | add <name> | insert <name> | list | <name>",
     getArgumentCompletions: async (prefix: string): Promise<AutocompleteItem[] | null> => {
       const trimmed = prefix.trimStart();
-      // /chat-snippet insert <partial-name> — 补全片段名
+      // /chat-snippet insert <partial-name>
       if (trimmed.startsWith("insert ")) {
         const partial = trimmed.slice(7);
         if (partial.includes(" ")) return null;
@@ -153,29 +175,48 @@ export default function (pi: ExtensionAPI) {
         const matches = names.filter((n) => n.startsWith(partial));
         return matches.length > 0 ? matches.map((n) => ({ value: `insert ${n}`, label: n })) : null;
       }
-      // /chat-snippet <partial> — 补全子命令或片段名
+      // /chat-snippet <partial> — subcommand or snippet name
       if (trimmed === "") {
         return [
-          { value: "add ", label: "add", description: "创建或编辑片段" },
-          { value: "insert ", label: "insert", description: "插入指定片段" },
-          { value: "list", label: "list", description: "列出所有片段" },
+          { value: "add ", label: "add", description: "Create or edit a snippet" },
+          { value: "insert ", label: "insert", description: "Insert a snippet" },
+          { value: "list", label: "list", description: "List all snippets" },
         ];
       }
-      // 子命令补全
+      // subcommand completion
       const subs = ["add", "insert", "list"].filter((s) => s.startsWith(trimmed));
       if (subs.length > 0) {
         return subs.map((s) => ({ value: s === "add" || s === "insert" ? `${s} ` : s, label: s }));
       }
-      // 快捷方式：直接补全片段名
+      // shortcut: complete snippet names directly
       const names = await listNames().catch(() => [] as string[]);
       const matches = names.filter((n) => n.startsWith(trimmed));
       return matches.length > 0 ? matches.map((n) => ({ value: n, label: n })) : null;
     },
     handler: async (args: string, ctx: ExtensionCommandContext) => {
       if (!ctx.hasUI) {
-        ctx.ui.notify("/chat-snippet 需要交互式 TUI 模式", "error");
+        ctx.ui.notify("/chat-snippet requires interactive TUI mode", "error");
         return;
       }
+
+      // Handle bare subcommands with no name: prompt interactively
+      const trimmed = args.trim();
+      if (trimmed === "add") {
+        const name = await ctx.ui.input("Snippet name (letters, digits, hyphens, underscores)");
+        if (name === undefined) return;
+        return await handleAdd(name, ctx);
+      }
+      if (trimmed === "insert") {
+        const names = await listNames();
+        if (names.length === 0) {
+          ctx.ui.notify("No snippets\nCreate .md files in ~/.pi/chat-snippet/", "info");
+          return;
+        }
+        const choice = await ctx.ui.select("Pick a snippet", names);
+        if (choice === undefined) return;
+        return await handleInsert(choice, ctx);
+      }
+
       const { action, name } = parseArgs(args);
       try {
         if (action === "select") return await handleSelect(ctx);
