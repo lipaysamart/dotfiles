@@ -7,6 +7,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY
 
+
 # 忽略敏感命令记录
 HISTIGNORE='export *:ssh *:scp *:mysql *:mongo *:redis-cli *:psql *:curl *:wget *:docker login*'
 setopt AUTO_CD                # 输入目录名自动 cd
@@ -17,9 +18,8 @@ setopt CORRECT                # 命令自动纠错
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Init
+# StarShip
 eval "$(starship init zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Alias
 alias ll="ls -lah"
@@ -29,3 +29,10 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias k=/usr/local/bin/kubectl
 alias tf=/usr/bin/terraform
+
+# FNM
+FNM_PATH="/home/ethan/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
