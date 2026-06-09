@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.78.1",
+  "lastChangelogVersion": "0.79.0",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "subagents": {
@@ -8,14 +8,13 @@
         "model": "metis/metis-coder-ultra",
         "thinking": "medium",
         "fallbackModels": [
-          "opencode-go/glm-5"
+          "opencode-go/deepseek-v4-pro"
         ]
       },
       "oracle": {
         "model": "metis/metis-coder-ultra",
         "thinking": "high",
         "fallbackModels": [
-          "nvidia/z-ai/glm-5.1",
           "opencode-go/glm-5.1"
         ]
       },
@@ -23,15 +22,13 @@
         "model": "metis/metis-coder-ultra",
         "thinking": "medium",
         "fallbackModels": [
-          "opencode-go/glm-5",
           "opencode-go/deepseek-v4-pro"
         ]
       },
       "researcher": {
-        "model": "metis/metis-coder-plus",
+        "model": "metis/metis-coder-max",
         "thinking": "medium",
         "fallbackModels": [
-          "nvidia/moonshotai/kimi-k2.6",
           "opencode-go/kimi-k2.6"
         ]
       },
@@ -58,8 +55,8 @@
     "npm:pi-web-access@0.10.7",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.5.6",
-    "npm:@juicesharp/rpiv-ask-user-question@1.17.1",
-    "npm:@juicesharp/rpiv-todo@1.17.1",
+    "npm:@juicesharp/rpiv-ask-user-question@1.18.2",
+    "npm:@juicesharp/rpiv-todo@1.18.2",
     "npm:@gotgenes/pi-permission-system@8.3.0"
   ],
   "enableSkillCommands": false,
@@ -120,6 +117,7 @@
     "nvidia/z-ai/glm-5.1",
     "nvidia/moonshotai/kimi-k2.6",
     "metis/metis-coder",
+    "metis/metis-coder-auto",
     "metis/metis-coder-max",
     "metis/metis-coder-plus",
     "metis/metis-coder-ultra"

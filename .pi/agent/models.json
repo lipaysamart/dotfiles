@@ -16,6 +16,16 @@
           "reasoning": true
         },
         {
+          "id": "metis-coder-auto",
+          "name": "Metis Coder Auto",
+          "contextWindow": 200000,
+          "maxTokens": 164000,
+          "input": [
+            "text"
+          ],
+          "reasoning": true
+        },
+        {
           "id": "metis-coder-ultra",
           "name": "Metis Coder Ultra",
           "contextWindow": 1000000,
@@ -23,7 +33,7 @@
           "input": [
             "text"
           ],
-          "reasoning": false
+          "reasoning": true
         },
         {
           "id": "metis-coder-plus",
@@ -33,7 +43,7 @@
           "input": [
             "text"
           ],
-          "reasoning": false
+          "reasoning": true
         },
         {
           "id": "metis-coder-max",

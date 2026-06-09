@@ -22,7 +22,7 @@
       "~/.npmrc": "deny",
       "~/.npm/**": "deny",
       "~/.pypirc": "deny",
-      "~/.gem/credentials)": "deny",
+      "~/.gem/credentials": "deny",
       "~/Library/Keychains/**": "deny"
     },
 
