@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.79.1",
+  "lastChangelogVersion": "0.79.6",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "subagents": {
@@ -120,5 +120,6 @@
     "metis/metis-coder-max",
     "metis/metis-coder-plus",
     "metis/metis-coder-ultra"
-  ]
+  ],
+  "theme": "dark"
 }
