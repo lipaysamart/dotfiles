@@ -55,10 +55,9 @@
     "npm:pi-web-access@0.10.7",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.6.1",
-    "npm:@juicesharp/rpiv-ask-user-question@1.18.2",
-    "npm:@juicesharp/rpiv-todo@1.18.2",
-    "npm:@gotgenes/pi-permission-system@8.3.0",
-    "../../Code/Github/pi-edu"
+    "npm:@juicesharp/rpiv-ask-user-question@1.20.0",
+    "npm:@juicesharp/rpiv-todo@1.20.0",
+    "npm:@gotgenes/pi-permission-system@13.1.2"
   ],
   "enableSkillCommands": false,
   "retry": {

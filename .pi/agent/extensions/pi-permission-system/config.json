@@ -11,41 +11,41 @@
   "permission": {
     "*": "allow", // universal fallback
     "read": {
-      "~/.ssh/**": "deny",
-      "~/.gnupg/**": "deny",
-      "~/.aws/**": "deny",
-      "~/.aliyun/**": "deny",
-      "~/.config/gh/**": "deny",
+      "~/.ssh/*": "deny",
+      "~/.gnupg/*": "deny",
+      "~/.aws/*": "deny",
+      "~/.aliyun/*": "deny",
+      "~/.config/gh/*": "deny",
       "~/.git-credentials": "deny",
       "~/.docker/config.json": "deny",
-      "~/.kube/**": "deny",
+      "~/.kube/*": "deny",
       "~/.npmrc": "deny",
-      "~/.npm/**": "deny",
+      "~/.npm/*": "deny",
       "~/.pypirc": "deny",
       "~/.gem/credentials": "deny",
-      "~/Library/Keychains/**": "deny"
+      "~/Library/Keychains/*": "deny"
     },
 
     "edit": {
       "~/.bashrc": "deny",
       "~/.zshrc": "deny",
       "~/.zshrc.local": "deny",
-      "~/.ssh/**": "deny"
+      "~/.ssh/*": "deny"
     },
 
     "bash": {
-      "git push --force*": "deny",
-      "wget *| bash*": "deny",
+      "git push --force *": "deny",
+      "wget *| bash *": "deny",
       "git push *--force*": "deny",
-      "git reset --hard*": "deny",
-      "rm -rf": "deny",
-      "mkfs": "deny",
-      "dd": "deny"
+      "git reset --hard *": "deny",
+      "rm -rf *": "deny",
+      "mkfs *": "deny",
+      "dd *": "deny"
     },
 
     "external_directory": {
       "*": "ask",
-      "~/*": "allow",
+      "~/Code/*": "allow",
       "/tmp/*": "allow"
     }
   }

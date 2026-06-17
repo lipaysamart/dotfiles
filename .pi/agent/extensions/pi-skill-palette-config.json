@@ -1,0 +1,5 @@
+{
+  "_comment": "Substring match against skill directory paths. Use leading dots for precision (e.g. '.codex' not 'codex').",
+  "disablePaths": [".codex", ".claude"],
+  "ancestorScan": true
+}
