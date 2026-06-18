@@ -1,17 +1,17 @@
 {
-  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-permission-system/main/schemas/permissions.schema.json",
-
-  // Runtime knobs
   "debugLog": false,
   "permissionReviewLog": true,
   "yoloMode": false,
   "piInfrastructureReadPaths": [],
 
-  // Flat permission policy
   "permission": {
-    "*": "allow", // universal fallback
+    "*": "allow", 
+    "path": {
+      "*": "allow",
+      "~/.ssh/*": "deny"
+    },
+
     "read": {
-      "~/.ssh/*": "deny",
       "~/.gnupg/*": "deny",
       "~/.aws/*": "deny",
       "~/.aliyun/*": "deny",
@@ -29,14 +29,13 @@
     "edit": {
       "~/.bashrc": "deny",
       "~/.zshrc": "deny",
-      "~/.zshrc.local": "deny",
-      "~/.ssh/*": "deny"
+      "~/.zshrc.local": "deny"
     },
 
     "bash": {
       "git push --force *": "deny",
-      "wget *| bash *": "deny",
-      "git push *--force*": "deny",
+      "wget * | bash *": "deny",
+      "git push * --force *": "deny",
       "git reset --hard *": "deny",
       "rm -rf *": "deny",
       "mkfs *": "deny",
@@ -45,8 +44,8 @@
 
     "external_directory": {
       "*": "ask",
-      "~/Code/*": "allow",
-      "/tmp/*": "allow"
+      "/tmp/*": "allow",
+      "~/Code/*": "allow"
     }
   }
 }
