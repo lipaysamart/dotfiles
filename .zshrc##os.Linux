@@ -31,7 +31,7 @@ alias k=/usr/local/bin/kubectl
 alias tf=/usr/bin/terraform
 
 # FNM
-FNM_PATH="/home/ethan/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env --shell zsh)"
@@ -40,4 +40,9 @@ fi
 # Load local overrides if present
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
+fi
+
+# Load pi environment
+if [[ -f "$HOME/.pi/agent/env" ]]; then
+    source "$HOME/.pi/agent/env"
 fi

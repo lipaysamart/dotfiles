@@ -39,3 +39,8 @@ ulimit -n unlimited
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
+
+# Load pi environment
+if [[ -f ~/.pi/agent/env ]]; then
+    source ~/.pi/agent/env
+fi

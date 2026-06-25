@@ -1,11 +1,11 @@
 {
-  "lastChangelogVersion": "0.79.6",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
+  "lastChangelogVersion": "0.80.2",
+  "defaultProvider": "metis",
+  "defaultModel": "metis-coder-ultra",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "metis/metis-coder-ultra",
+        "model": "opencode-go/kimi-k2.7-code",
         "thinking": "medium",
         "fallbackModels": [
           "opencode-go/deepseek-v4-pro"
@@ -15,7 +15,7 @@
         "model": "metis/metis-coder-ultra",
         "thinking": "high",
         "fallbackModels": [
-          "opencode-go/glm-5.1"
+          "opencode-go/glm-5.2"
         ]
       },
       "planner": {
@@ -26,24 +26,23 @@
         ]
       },
       "researcher": {
-        "model": "metis/metis-coder-max",
+        "model": "metis/metis-coder-ultra",
         "thinking": "medium",
         "fallbackModels": [
-          "opencode-go/kimi-k2.6"
+          "opencode-go/deepseek-v4-pro"
         ]
       },
       "worker": {
         "model": "metis/metis-coder-ultra",
         "thinking": "medium",
         "fallbackModels": [
-          "opencode-go/qwen3.7-plus",
           "opencode-go/deepseek-v4-pro"
         ]
       },
       "scout": {
-        "model": "metis/metis-coder-max",
+        "model": "opencode-go/qwen3.7-plus",
         "fallbackModels": [
-          "opencode-go/qwen3.7-plus",
+          "metis/metis-coder-ultra",
           "opencode-go/deepseek-v4-pro"
         ]
       }
@@ -51,13 +50,14 @@
   },
   "packages": [
     "pi-skills",
-    "npm:pi-subagents@0.28.0",
+    "npm:pi-subagents@0.30.0",
     "npm:pi-web-access@0.10.7",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.6.1",
     "npm:@juicesharp/rpiv-ask-user-question@1.20.0",
     "npm:@juicesharp/rpiv-todo@1.20.0",
-    "npm:@gotgenes/pi-permission-system@14.0.0"
+    "npm:@gotgenes/pi-permission-system@14.0.0",
+    "npm:@hypabolic/pi-hypa@0.1.6"
   ],
   "enableSkillCommands": false,
   "retry": {
@@ -110,15 +110,15 @@
   "enabledModels": [
     "opencode-go/deepseek-v4-flash",
     "opencode-go/deepseek-v4-pro",
-    "opencode-go/glm-5.1",
     "opencode-go/qwen3.7-plus",
-    "opencode-go/kimi-k2.6",
-    "opencode-go/glm-5",
     "metis/metis-coder",
     "metis/metis-coder-auto",
     "metis/metis-coder-max",
     "metis/metis-coder-plus",
-    "metis/metis-coder-ultra"
+    "metis/metis-coder-ultra",
+    "opencode-go/glm-5.2",
+    "opencode-go/kimi-k2.7-code",
+    "opencode-go/kimi-k2.6"
   ],
   "theme": "dark"
 }
