@@ -2,6 +2,7 @@
   "provider": "auto",
   "curatorTimeoutSeconds": 10,
   "summaryModel": "opencode-go/deepseek-v4-flash",
+  "exaApiKey": "${EXA_API_KEY}",
   "githubClone": {
     "cloneTimeoutSeconds": 60
   }

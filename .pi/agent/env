@@ -1,1 +1,1 @@
-export HYPA_PI_MODE=replace
+export HYPA_PI_MODE=additive

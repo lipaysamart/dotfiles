@@ -44,5 +44,5 @@ fi
 
 # Load pi environment
 if [[ -f "$HOME/.pi/agent/env" ]]; then
-    source "$HOME/.pi/agent/env"
+    source "$HOME/.pi/agent/env:
 fi
