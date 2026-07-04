@@ -9,55 +9,122 @@
         "thinking": "medium",
         "fallbackModels": [
           "opencode-go/deepseek-v4-pro"
+        ],
+        "tools": [
+          "hypa_read",
+          "hypa_grep",
+          "hypa_find",
+          "hypa_ls",
+          "hypa_shell",
+          "edit",
+          "write",
+          "intercom"
         ]
       },
       "oracle": {
-        "model": "metis/metis-coder-ultra",
+        "model": "opencode-go/glm-5.2",
         "thinking": "high",
-        "fallbackModels": [
-          "opencode-go/glm-5.2"
+        "fallbackModels": [],
+        "tools": [
+          "hypa_read",
+          "hypa_grep",
+          "hypa_find",
+          "hypa_ls",
+          "hypa_shell",
+          "intercom"
         ]
       },
       "planner": {
-        "model": "metis/metis-coder-ultra",
+        "model": "opencode-go/glm-5.2",
         "thinking": "medium",
-        "fallbackModels": [
-          "opencode-go/deepseek-v4-pro"
+        "fallbackModels": [],
+        "tools": [
+          "hypa_read",
+          "hypa_grep",
+          "hypa_find",
+          "hypa_ls",
+          "write",
+          "intercom"
         ]
       },
       "researcher": {
-        "model": "metis/metis-coder-ultra",
+        "model": "opencode-go/kimi-k2.6",
         "thinking": "medium",
-        "fallbackModels": [
-          "opencode-go/deepseek-v4-pro"
+        "fallbackModels": [],
+        "tools": [
+          "hypa_read",
+          "write",
+          "web_search",
+          "fetch_content",
+          "get_search_content",
+          "intercom"
         ]
       },
       "worker": {
-        "model": "metis/metis-coder-ultra",
+        "model": "opencode-go/deepseek-v4-pro",
         "thinking": "medium",
-        "fallbackModels": [
-          "opencode-go/deepseek-v4-pro"
+        "fallbackModels": [],
+        "tools": [
+          "hypa_read",
+          "hypa_grep",
+          "hypa_find",
+          "hypa_ls",
+          "hypa_shell",
+          "edit",
+          "write",
+          "contact_supervisor"
         ]
       },
       "scout": {
-        "model": "opencode-go/qwen3.7-plus",
-        "fallbackModels": [
-          "metis/metis-coder-ultra",
-          "opencode-go/deepseek-v4-pro"
+        "model": "opencode-go/deepseek-v4-flash",
+        "fallbackModels": [],
+        "tools": [
+          "hypa_read",
+          "hypa_grep",
+          "hypa_find",
+          "hypa_ls",
+          "hypa_shell",
+          "write",
+          "intercom"
+        ]
+      },
+      "delegate": {
+        "tools": [
+          "hypa_read",
+          "hypa_grep",
+          "hypa_find",
+          "hypa_ls",
+          "hypa_shell",
+          "edit",
+          "write",
+          "contact_supervisor"
+        ]
+      },
+      "context-builder": {
+        "tools": [
+          "hypa_read",
+          "hypa_grep",
+          "hypa_find",
+          "hypa_ls",
+          "hypa_shell",
+          "write",
+          "web_search",
+          "intercom"
         ]
       }
     }
   },
   "packages": [
     "pi-skills",
-    "npm:pi-subagents@0.31.0",
+    "npm:pi-subagents@0.32.0",
     "npm:pi-web-access@0.13.0",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.6.1",
     "npm:@juicesharp/rpiv-ask-user-question@1.20.0",
     "npm:@juicesharp/rpiv-todo@1.20.0",
     "npm:@gotgenes/pi-permission-system@14.0.0",
-    "npm:@hypabolic/pi-hypa@0.1.6"
+    "npm:@hypabolic/pi-hypa@0.1.6",
+    "npm:pi-prompt-template-model"
   ],
   "enableSkillCommands": false,
   "retry": {
