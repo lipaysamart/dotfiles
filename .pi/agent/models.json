@@ -10,7 +10,7 @@
           "name": "Metis Coder",
           "contextWindow": 200000,
           "input": [
-            "text"
+            "text", "image"
           ],
           "reasoning": true
         },
@@ -26,16 +26,16 @@
         {
           "id": "metis-coder-ultra",
           "name": "Metis Coder Ultra",
-          "contextWindow": 1000000,
+          "contextWindow": 256000,
           "input": [
             "text"
           ],
-          "reasoning": true
+          "reasoning": false
         },
         {
           "id": "metis-coder-plus",
           "name": "Metis Coder Plus",
-          "contextWindow": 1000000,
+          "contextWindow": 256000,
           "input": [
             "text"
           ],
