@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.6",
+  "lastChangelogVersion": "0.80.10",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "subagents": {
@@ -7,9 +7,7 @@
       "reviewer": {
         "model": "opencode-go/kimi-k2.7-code",
         "thinking": "medium",
-        "fallbackModels": [
-          "opencode-go/deepseek-v4-pro"
-        ],
+        "fallbackModels": [],
         "tools": [
           "hypa_read",
           "hypa_grep",
@@ -22,7 +20,7 @@
         ]
       },
       "oracle": {
-        "model": "opencode-go/glm-5.2",
+        "model": "opencode-go/kimi-k3",
         "thinking": "high",
         "fallbackModels": [],
         "tools": [
@@ -61,7 +59,7 @@
         ]
       },
       "worker": {
-        "model": "opencode-go/deepseek-v4-pro",
+        "model": "opencode-go/kimi-k2.7-code",
         "thinking": "medium",
         "fallbackModels": [],
         "tools": [
@@ -185,7 +183,8 @@
     "metis/metis-coder-ultra",
     "opencode-go/glm-5.2",
     "opencode-go/kimi-k2.7-code",
-    "opencode-go/kimi-k2.6"
+    "opencode-go/kimi-k2.6",
+    "opencode-go/kimi-k3"
   ],
   "theme": "dark"
 }
