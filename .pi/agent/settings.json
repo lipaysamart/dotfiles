@@ -1,11 +1,11 @@
 {
-  "lastChangelogVersion": "0.82.0",
+  "lastChangelogVersion": "0.82.1",
   "defaultProvider": "qwen-token-plan-cn",
-  "defaultModel": "qwen3.8-max-preview",
+  "defaultModel": "qwen3.7-plus",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "qwen-token-plan-cn/deepseek-v4-pro",
+        "model": "qwen-token-plan-cn/qwen-3.8-max-preview",
         "thinking": "medium",
         "fallbackModels": [],
         "tools": [
