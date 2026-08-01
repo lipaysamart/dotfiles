@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.82.1",
+  "lastChangelogVersion": "0.83.0",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "subagents": {
@@ -68,7 +68,7 @@
       },
       "worker": {
         "model": "qwen-token-plan-cn/deepseek-v4-pro",
-        "thinking": "medium",
+        "thinking": "high",
         "fallbackModels": [
           "opencode-go/deepseek-v4-pro"
         ],
@@ -153,7 +153,7 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultThinkingLevel": "off",
+  "defaultThinkingLevel": "high",
   "powerline": {
     "preset": "default",
     "fixedEditor": false,
@@ -195,7 +195,9 @@
     "opencode-go/glm-5.2",
     "opencode-go/kimi-k2.6",
     "opencode-go/qwen3.7-max",
-    "opencode-go/deepseek-v4-flash"
+    "opencode-go/deepseek-v4-flash",
+    "opencode-go/deepseek-v4-pro",
+    "opencode-go/gpt-5.6-luna"
   ],
   "theme": "dark",
   "hideThinkingBlock": true
