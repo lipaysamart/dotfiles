@@ -1,8 +1,18 @@
 {
+  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
+
   "debugLog": false,
   "permissionReviewLog": true,
-  "yoloMode": false,
+  "yoloMode": true,
+  "doublePressToConfirm": false,
+  "forwardingTimeoutMs": 600000,
+  "toolInputPreviewMaxLength": 400,
+  "toolTextSummaryMaxLength": 120,
   "piInfrastructureReadPaths": [],
+
+  "shellTools": {
+    "hypa_shell": { "commandArgument": "hypa" }
+  },
 
   "permission": {
     "*": "allow", 
@@ -43,7 +53,7 @@
     },
 
     "external_directory": {
-      "*": "ask",
+      "*": "allow",
       "/tmp/*": "allow",
       "~/Code/*": "allow"
     }

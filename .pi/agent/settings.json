@@ -1,15 +1,13 @@
 {
-  "lastChangelogVersion": "0.83.0",
+  "lastChangelogVersion": "0.84.1",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "qwen-token-plan-cn/deepseek-v4-pro",
+        "model": "opencode-go/kimi-k2.7-code",
         "thinking": "medium",
-        "fallbackModels": [
-          "opencode-go/kimi-k2.7-code"
-        ],
+        "fallbackModels": [],
         "tools": [
           "hypa_read",
           "hypa_grep",
@@ -22,11 +20,9 @@
         ]
       },
       "oracle": {
-        "model": "qwen-token-plan-cn/glm-5.2",
+        "model": "opencode-go/glm-5.2",
         "thinking": "high",
-        "fallbackModels": [
-          "opencode-go/glm-5.2"
-        ],
+        "fallbackModels": [],
         "tools": [
           "hypa_read",
           "hypa_grep",
@@ -37,11 +33,9 @@
         ]
       },
       "planner": {
-        "model": "qwen-token-plan-cn/deepseek-v4-pro",
-        "thinking": "medium",
-        "fallbackModels": [
-          "opencode-go/kimi-k2.7-code"
-        ],
+        "model": "opencode-go/kimi-k3",
+        "thinking": "high",
+        "fallbackModels": [],
         "tools": [
           "hypa_read",
           "hypa_grep",
@@ -52,11 +46,9 @@
         ]
       },
       "researcher": {
-        "model": "qwen-token-plan-cn/qwen3.7-plus",
+        "model": "opencode-go/kimi-k2.6",
         "thinking": "medium",
-        "fallbackModels": [
-          "opencode-go/kimi-k2.6"
-        ],
+        "fallbackModels": [],
         "tools": [
           "hypa_read",
           "write",
@@ -67,11 +59,9 @@
         ]
       },
       "worker": {
-        "model": "qwen-token-plan-cn/deepseek-v4-pro",
-        "thinking": "high",
-        "fallbackModels": [
-          "opencode-go/deepseek-v4-pro"
-        ],
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "max",
+        "fallbackModels": [],
         "tools": [
           "hypa_read",
           "hypa_grep",
@@ -126,18 +116,16 @@
   },
   "packages": [
     "pi-skills",
-    "npm:pi-subagents@0.37.2",
-    "npm:pi-web-access@0.15.0",
+    "npm:pi-subagents@0.49.0",
+    "npm:pi-web-access@0.22.0",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.7.0",
     "npm:@juicesharp/rpiv-ask-user-question@2.1.0",
     "npm:@juicesharp/rpiv-todo@2.1.0",
-    "npm:@gotgenes/pi-permission-system@24.0.0",
     "npm:@hypabolic/pi-hypa@0.1.11",
-    "npm:pi-prompt-template-model@0.10.0",
-    "npm:pi-codex-goal@0.1.38"
+    "npm:pi-prompt-template-model@0.10.0"
   ],
-  "enableSkillCommands": false,
+  "enableSkillCommands": true,
   "retry": {
     "enabled": true,
     "maxRetries": 3
@@ -153,7 +141,7 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "max",
   "powerline": {
     "preset": "default",
     "fixedEditor": false,
@@ -187,16 +175,12 @@
   "workingVibeMaxLength": 65,
   "enabledModels": [
     "metis/metis-coder-auto",
-    "qwen-token-plan-cn/qwen3.7-max",
-    "qwen-token-plan-cn/qwen3.8-max-preview",
+    "qwen-token-plan-cn/qwen3.8-max",
     "qwen-token-plan-cn/glm-5.2",
-    "qwen-token-plan-cn/deepseek-v4-pro",
     "qwen-token-plan-cn/qwen3.7-plus",
     "opencode-go/glm-5.2",
     "opencode-go/kimi-k2.6",
-    "opencode-go/qwen3.7-max",
     "opencode-go/deepseek-v4-flash",
-    "opencode-go/deepseek-v4-pro",
     "opencode-go/gpt-5.6-luna"
   ],
   "theme": "dark",
