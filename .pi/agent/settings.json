@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.84.2",
   "defaultProvider": "opencode-go",
-  "defaultModel": "gpt-5.6-luna",
+  "defaultModel": "deepseek-v4-flash",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
@@ -123,7 +123,8 @@
     "npm:@juicesharp/rpiv-ask-user-question@2.1.0",
     "npm:@juicesharp/rpiv-todo@2.1.0",
     "npm:@hypabolic/pi-hypa@0.1.11",
-    "npm:pi-prompt-template-model@0.10.0"
+    "npm:pi-prompt-template-model@0.12.0",
+    "npm:pi-side-chat@0.1.4"
   ],
   "enableSkillCommands": true,
   "retry": {
@@ -141,7 +142,7 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultThinkingLevel": "xhigh",
+  "defaultThinkingLevel": "max",
   "powerline": {
     "preset": "default",
     "fixedEditor": false,
