@@ -1,128 +1,48 @@
 {
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.84.4",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "opencode-go/kimi-k2.7-code",
+        "model": "opencode-go/glm-5.2",
         "thinking": "high",
-        "fallbackModels": [],
-        "tools": [
-          "hypa_read",
-          "hypa_grep",
-          "hypa_find",
-          "hypa_ls",
-          "hypa_shell",
-          "edit",
-          "write",
-          "intercom"
-        ]
+        "fallbackModels": []
       },
       "oracle": {
         "model": "opencode-go/glm-5.2",
         "thinking": "high",
-        "fallbackModels": [],
-        "tools": [
-          "hypa_read",
-          "hypa_grep",
-          "hypa_find",
-          "hypa_ls",
-          "hypa_shell",
-          "intercom"
-        ]
+        "fallbackModels": []
       },
       "planner": {
         "model": "opencode-go/kimi-k3",
         "thinking": "high",
-        "fallbackModels": [],
-        "tools": [
-          "hypa_read",
-          "hypa_grep",
-          "hypa_find",
-          "hypa_ls",
-          "write",
-          "intercom"
-        ]
+        "fallbackModels": []
       },
       "researcher": {
         "model": "opencode-go/kimi-k2.6",
         "thinking": "medium",
-        "fallbackModels": [],
-        "tools": [
-          "hypa_read",
-          "write",
-          "web_search",
-          "fetch_content",
-          "get_search_content",
-          "intercom"
-        ]
+        "fallbackModels": []
       },
       "worker": {
         "model": "opencode-go/deepseek-v4-flash",
         "thinking": "max",
-        "fallbackModels": [],
-        "tools": [
-          "hypa_read",
-          "hypa_grep",
-          "hypa_find",
-          "hypa_ls",
-          "hypa_shell",
-          "edit",
-          "write",
-          "contact_supervisor"
-        ]
+        "fallbackModels": []
       },
       "scout": {
-        "model": "qwen-token-plan-cn/qwen3.7-plus",
-        "fallbackModels": [
-          "opencode-go/deepseek-v4-flash"
-        ],
-        "tools": [
-          "hypa_read",
-          "hypa_grep",
-          "hypa_find",
-          "hypa_ls",
-          "hypa_shell",
-          "write",
-          "intercom"
-        ]
-      },
-      "delegate": {
-        "tools": [
-          "hypa_read",
-          "hypa_grep",
-          "hypa_find",
-          "hypa_ls",
-          "hypa_shell",
-          "edit",
-          "write",
-          "contact_supervisor"
-        ]
-      },
-      "context-builder": {
-        "tools": [
-          "hypa_read",
-          "hypa_grep",
-          "hypa_find",
-          "hypa_ls",
-          "hypa_shell",
-          "write",
-          "web_search",
-          "intercom"
-        ]
+        "model": "opencode-go/deepseek-v4-flash",
+        "fallbackModels": []
       }
     }
   },
   "packages": [
     "pi-skills",
-    "npm:pi-subagents@0.49.0",
+    "npm:pi-subagents@0.62.0",
     "npm:pi-web-access@0.22.0",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.7.0",
     "npm:@juicesharp/rpiv-ask-user-question@2.1.0",
     "npm:@juicesharp/rpiv-todo@2.1.0",
-    "npm:@hypabolic/pi-hypa@0.1.11",
     "npm:pi-prompt-template-model@0.12.0",
     "npm:pi-side-chat@0.1.4"
   ],
@@ -156,20 +76,20 @@
   },
   "workingVibe": "star trek",
   "workingVibeMode": "file",
-  "workingVibeModel": "metis/metis-coder-auto",
+  "workingVibeModel": "opencode-go/deepseek-v4-flash",
   "workingVibeFallback": "Working",
   "workingVibeRefreshInterval": 30,
   "workingVibeMaxLength": 65,
   "enabledModels": [
-    "metis/metis-coder-auto",
-    "qwen-token-plan-cn/qwen3.8-max",
-    "qwen-token-plan-cn/qwen3.7-plus",
-    "opencode-go/glm-5.2",
     "opencode-go/kimi-k2.6",
     "opencode-go/kimi-k2.7-code",
     "opencode-go/kimi-k3",
     "opencode-go/deepseek-v4-flash",
-    "opencode-go/gpt-5.6-luna"
+    "openai-codex/gpt-5.5",
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.6-sol",
+    "metis/metis-coder",
+    "opencode-go/deepseek-v4-flash-vision-exp"
   ],
   "theme": "dark",
   "hideThinkingBlock": true
