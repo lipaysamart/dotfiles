@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.85.1",
   "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "glm-5.3-flash",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
@@ -20,24 +20,24 @@
         "fallbackModels": []
       },
       "researcher": {
-        "model": "opencode-go/kimi-k2.6",
+        "model": "opencode-go/deepseek-v4-flash-vision-exp",
         "thinking": "medium",
         "fallbackModels": []
       },
       "worker": {
-        "model": "opencode-go/deepseek-v4-flash",
+        "model": "opencode-go/glm-5.3-flash",
         "thinking": "max",
         "fallbackModels": []
       },
       "scout": {
-        "model": "opencode-go/deepseek-v4-flash",
+        "model": "opencode-go/glm-5.3-flash",
         "fallbackModels": []
       }
     }
   },
   "packages": [
     "pi-skills",
-    "npm:pi-subagents@0.62.0",
+    "npm:pi-subagents@0.66.0",
     "npm:pi-web-access@0.22.0",
     "npm:pi-intercom@0.6.0",
     "npm:pi-powerline-footer@0.7.0",
@@ -76,7 +76,6 @@
   },
   "workingVibe": "star trek",
   "workingVibeMode": "file",
-  "workingVibeModel": "opencode-go/deepseek-v4-flash",
   "workingVibeFallback": "Working",
   "workingVibeRefreshInterval": 30,
   "workingVibeMaxLength": 65,
@@ -85,11 +84,9 @@
     "opencode-go/kimi-k2.7-code",
     "opencode-go/kimi-k3",
     "opencode-go/deepseek-v4-flash",
-    "openai-codex/gpt-5.5",
-    "openai-codex/gpt-5.6-luna",
-    "openai-codex/gpt-5.6-sol",
-    "metis/metis-coder",
-    "opencode-go/deepseek-v4-flash-vision-exp"
+    "metis/metis-coder-flash",
+    "opencode-go/deepseek-v4-flash-vision-exp",
+    "opencode-go/glm-5.3-flash"
   ],
   "theme": "dark",
   "hideThinkingBlock": true

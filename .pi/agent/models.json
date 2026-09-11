@@ -42,6 +42,23 @@
           "reasoning": true
         },
         {
+          "id": "metis-coder-flash",
+          "name": "Metis Coder Flash",
+          "contextWindow": 256000,
+          "input": [
+            "text","image"
+          ],
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "xhigh",
+            "xhigh": null,
+            "max": null
+          },
+          "reasoning": true
+        },
+        {
           "id": "metis-coder-max",
           "name": "Metis Coder Max",
           "contextWindow": 200000,
