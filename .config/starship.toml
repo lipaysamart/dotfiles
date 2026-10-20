@@ -1,5 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# 默认 30ms，目录树大时扫描会超时并报 WARN
+scan_timeout = 100
+
 format = """
 [](color_orange)\
 $os\
