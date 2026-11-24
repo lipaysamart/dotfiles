@@ -10,11 +10,13 @@
  *   /chat-snippet add <name>    创建或编辑片段
  *   /chat-snippet insert <name> 插入指定片段到输入框（带补全）
  *   /chat-snippet <name>        直接插入（快捷方式）
- *
- * setEditorText 是运行时 API（类型声明中未暴露），pi-powerline-footer 同样使用此 API。
  */
 
-import type { AutocompleteItem, ExtensionAPI, ExtensionCommandContext } from "@earendil-works/pi-coding-agent";
+import type {
+  ExtensionAPI,
+  ExtensionCommandContext,
+} from "@earendil-works/pi-coding-agent";
+import type { AutocompleteItem } from "@earendil-works/pi-tui";
 import { homedir } from "node:os";
 import path from "node:path";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
@@ -122,8 +124,7 @@ async function handleInsert(name: string, ctx: ExtensionCommandContext): Promise
     ctx.ui.notify(`Snippet "${name}" is empty`, "warning");
     return;
   }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (ctx.ui as any).setEditorText(content);
+  ctx.ui.setEditorText(content);
   ctx.ui.notify(`Inserted snippet "${name}"`, "info");
 }
 
@@ -215,7 +216,6 @@ function parseArgs(args: string): { action: Action; name?: string } {
 export default function (pi: ExtensionAPI) {
   pi.registerCommand("chat-snippet", {
     description: "Chat snippets — press Enter after /chat-snippet to open menu, or type subcommands: add/insert/list/name",
-    argumentHint: "[Enter for menu] | add <name> | insert <name> | list | <name>",
     getArgumentCompletions: async (prefix: string): Promise<AutocompleteItem[] | null> => {
       const trimmed = prefix.trimStart();
       // /chat-snippet insert <partial-name>

@@ -21,7 +21,12 @@
  * 仅在等待确认时在编辑器下方临时显示提示。
  */
 
-import type { AutocompleteItem, ExtensionAPI, ExtensionCommandContext } from "@earendil-works/pi-coding-agent";
+import type {
+  ExtensionAPI,
+  ExtensionCommandContext,
+  ExtensionContext,
+} from "@earendil-works/pi-coding-agent";
+import type { AutocompleteItem } from "@earendil-works/pi-tui";
 
 // ── 状态 ──
 
@@ -29,6 +34,12 @@ let stepModeEnabled = false;
 
 /** 去抖窗口（毫秒） */
 const DEBOUNCE_MS = 500;
+
+/** 单步确认等待超时（毫秒） */
+const STEP_TIMEOUT_MS = 60_000;
+
+/** 超时判定容差：原生倒计时按整秒触发，留出余量 */
+const TIMEOUT_TOLERANCE_MS = 500;
 
 /** 去抖时间戳 */
 let lastPauseTimestamp = 0;
@@ -44,7 +55,6 @@ export default function (pi: ExtensionAPI) {
   pi.registerCommand("single-step", {
     description:
       "单步执行模式 — 每步执行后询问是否继续。用法: /single-step on | off",
-    argumentHint: "on | off",
     getArgumentCompletions: async (prefix: string): Promise<AutocompleteItem[] | null> => {
       const candidates = [
         { value: "on", label: "on", description: "Enable single-step mode" },
@@ -84,18 +94,18 @@ export default function (pi: ExtensionAPI) {
   // 使用 setStatus 在 footer 右侧显示，不占用主内容区空间。
   // 仅在 turn_end 等待确认时额外临时用 setWidget。
 
-  function fmtStatus(theme: { fg: (c: string, t: string) => string }): string {
+  function fmtStatus(theme: ExtensionContext["ui"]["theme"]): string {
     if (agentRunning) return theme.fg("warning", "🟡 STEP");
     return theme.fg("success", "🟢 STEP");
   }
 
-  function updateStatus(ctx: { ui: { setStatus: (id: string, text: string | undefined) => void; theme: { fg: (c: string, t: string) => string } }; hasUI: boolean }) {
+  function updateStatus(ctx: ExtensionContext) {
     if (!stepModeEnabled) return;
     if (!ctx.hasUI) return;
     ctx.ui.setStatus("pi-single-step", fmtStatus(ctx.ui.theme));
   }
 
-  function clearStatus(ctx: { ui: { setStatus: (id: string, text: string | undefined) => void }; hasUI: boolean }) {
+  function clearStatus(ctx: ExtensionContext) {
     if (!ctx.hasUI) return;
     ctx.ui.setStatus("pi-single-step", undefined);
   }
@@ -135,8 +145,7 @@ export default function (pi: ExtensionAPI) {
     ctx.ui.setWidget("pi-single-step", [theme.fg("accent", "▶  Step completed. What next?")], { placement: "belowEditor" });
     ctx.ui.setStatus("pi-single-step", theme.fg("accent", "⏸️ STEP"));
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60_000);
+    const startedAt = Date.now();
     let choice: string | undefined;
     try {
       choice = await ctx.ui.select(
@@ -146,15 +155,19 @@ export default function (pi: ExtensionAPI) {
           "Stop (no reason)",
           "Stop (with reason)",
         ],
-        { signal: controller.signal },
+        { timeout: STEP_TIMEOUT_MS },
       );
     } finally {
-      clearTimeout(timeoutId);
       // 清除等待确认时的临时 widget
       ctx.ui.setWidget("pi-single-step", undefined);
     }
 
-    if (controller.signal.aborted) {
+    // 原生 timeout 与 Esc 都返回 undefined，只能按耗时区分
+    const timedOut =
+      choice === undefined &&
+      Date.now() - startedAt >= STEP_TIMEOUT_MS - TIMEOUT_TOLERANCE_MS;
+
+    if (timedOut) {
       // 超时 → 自动继续：不做任何操作，让 agent 自然运行
       updateStatus(ctx);
       ctx.ui.notify("⏩ Timeout — auto-continuing", "info");

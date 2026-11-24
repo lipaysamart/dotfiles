@@ -16,7 +16,7 @@
  *   direnv must be installed (brew install direnv, apt install direnv, etc.)
  */
 
-import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import type { BashOperations, ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import {
 	createBashTool,
 	createLocalBashOperations,
@@ -106,18 +106,13 @@ export default function (pi: ExtensionAPI) {
 
 		// Wrap pi's local bash backend to inject direnv before user commands
 		const local = createLocalBashOperations();
-		return {
-			operations: {
-				exec: async (
-					command: string,
-					cmdCwd: string,
-					options: { signal?: AbortSignal; timeout?: number },
-				) => {
-					const prefixed = `eval "$(direnv export bash 2>/dev/null)"\n${command}`;
-					return local.exec(prefixed, cmdCwd, options);
-				},
+		const operations: BashOperations = {
+			exec: async (command, cmdCwd, options) => {
+				const prefixed = `eval "$(direnv export bash 2>/dev/null)"\n${command}`;
+				return local.exec(prefixed, cmdCwd, options);
 			},
 		};
+		return { operations };
 	});
 
 	// ── Status indicator ───────────────────────────────────────────────────

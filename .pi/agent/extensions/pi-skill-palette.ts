@@ -30,6 +30,7 @@
  */
 
 import type { ExtensionAPI, ExtensionCommandContext } from "@earendil-works/pi-coding-agent";
+import { getAgentDir } from "@earendil-works/pi-coding-agent";
 import { matchesKey, Container, Text, truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 import * as fs from "node:fs";
 import * as path from "node:path";
@@ -65,7 +66,7 @@ const DEFAULT_CONFIG: PaletteConfig = {
 };
 
 function loadConfig(): PaletteConfig {
-	const configPath = path.join(os.homedir(), ".pi", "agent", "extensions", "pi-skill-palette-config.json");
+	const configPath = path.join(getAgentDir(), "extensions", "pi-skill-palette-config.json");
 	try {
 		if (fs.existsSync(configPath)) {
 			const content = fs.readFileSync(configPath, "utf-8");
@@ -113,7 +114,7 @@ const DEFAULT_THEME: PaletteTheme = {
 };
 
 function loadTheme(): PaletteTheme {
-	const configPath = path.join(os.homedir(), ".pi", "agent", "extensions", "pi-skill-palette-theme.json");
+	const configPath = path.join(getAgentDir(), "extensions", "pi-skill-palette-theme.json");
 	try {
 		if (fs.existsSync(configPath)) {
 			const content = fs.readFileSync(configPath, "utf-8");
@@ -867,7 +868,9 @@ export default function skillPaletteExtension(pi: ExtensionAPI): void {
 	});
 
 	// Handle the before_agent_start event to send skill content as custom message
-	pi.on("before_agent_start", async (_event, ctx) => {
+	pi.on("before_agent_start", async (event, ctx) => {
+		// 1.2.0 起该事件也会为 triggerTurn 的 custom run 触发，只消费用户输入发起的 run
+		if (event.messageType !== "user") return {};
 		if (!state.queuedSkill) {
 			return {};
 		}

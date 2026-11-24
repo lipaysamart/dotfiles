@@ -113,7 +113,8 @@ function isAssistantMessage(m: unknown): m is AssistantMessageLike {
 
 function getLastAssistantMessage(messages: readonly unknown[]): AssistantMessageLike | undefined {
   for (let i = messages.length - 1; i >= 0; i--) {
-    if (isAssistantMessage(messages[i])) return messages[i];
+    const message = messages[i];
+    if (isAssistantMessage(message)) return message;
   }
 }
 
@@ -505,7 +506,7 @@ export default function (pi: ExtensionAPI) {
       if (icon) a.push("--icon", icon);
       if (color) a.push("--color", color);
       enqueue(a);
-      return { content: [{ type: "text", text: `Status: ${value}` }] };
+      return { content: [{ type: "text", text: `Status: ${value}` }], details: undefined };
     },
   });
 
@@ -526,7 +527,7 @@ export default function (pi: ExtensionAPI) {
       const { title, body, doFlash } = params as { title: string; body?: string; doFlash?: boolean };
       enqueue(["notify", "--title", "Pi", "--subtitle", title, "--body", body ?? ""]);
       if (doFlash) enqueue(["trigger-flash"]);
-      return { content: [{ type: "text", text: `Notified: ${title}` }] };
+      return { content: [{ type: "text", text: `Notified: ${title}` }], details: undefined };
     },
   });
 }
