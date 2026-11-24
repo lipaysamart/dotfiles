@@ -1,19 +1,19 @@
 {
-  "lastChangelogVersion": "1.5.2",
+  "lastChangelogVersion": "1.6.0",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4.1-flash",
   "subagents": {
     "agentOverrides": {
       "reviewer": {
-        "model": "opencode-go/glm-5.2",
+        "model": "opencode-go/glm-5.3",
         "thinking": "high"
       },
       "oracle": {
-        "model": "opencode-go/glm-5.2",
+        "model": "opencode-go/glm-5.3",
         "thinking": "high"
       },
       "planner": {
-        "model": "opencode-go/kimi-k3",
+        "model": "opencode-go/glm-5.3",
         "thinking": "high"
       },
       "researcher": {
@@ -25,20 +25,20 @@
         "thinking": "max"
       },
       "scout": {
-        "model": "opencode-go/glm-5.3-flash"
+        "model": "opencode-go/deepseek-v4.1-flash"
       }
     }
   },
   "packages": [
     "pi-skills",
-    "npm:pi-subagents@0.76.0",
-    "npm:pi-web-access@0.36.0",
-    "npm:pi-intercom@0.13.0",
-    "npm:pi-powerline-footer@0.17.1",
+    "npm:pi-subagents@0.90.0",
+    "npm:pi-web-access@0.48.0",
+    "npm:pi-intercom@0.18.1",
+    "npm:pi-powerline-footer@0.22.0",
     "npm:@juicesharp/rpiv-ask-user-question@2.12.0",
     "npm:@juicesharp/rpiv-todo@2.12.0",
-    "npm:pi-prompt-template-model@0.12.0",
-    "npm:pi-side-chat@0.1.4"
+    "npm:pi-prompt-template-model@0.12.3",
+    "npm:pi-side-chat@0.4.0"
   ],
   "enableSkillCommands": true,
   "retry": {
@@ -69,10 +69,13 @@
     "transcriptMaxBytes": 524288
   },
   "workingVibe": "star trek",
-  "workingVibeMode": "file",
   "workingVibeFallback": "Working",
   "workingVibeRefreshInterval": 30,
   "workingVibeMaxLength": 65,
+  "powerline": { "workingVibes": { "color": "rainbow" } },
+  "workingVibeMode": "generate",
+  "workingVibeModel": "opencode-go/deepseek-v4.1-flash:max",
+  "workingVibePrompt": "Generate a {theme} loading message for: {task}",
   "enabledModels": [
     "metis/metis-coder-flash",
     "opencode-go/glm-5.3-flash",
@@ -87,6 +90,11 @@
     "{\"source\":\"npm:pi-web-access@0.36.0\",\"scope\":\"user\"}": "0.36.0",
     "{\"source\":\"npm:pi-powerline-footer@0.17.1\",\"scope\":\"user\"}": "0.17.1",
     "{\"source\":\"npm:pi-prompt-template-model@0.12.0\",\"scope\":\"user\"}": "0.12.0",
-    "{\"source\":\"npm:pi-side-chat@0.1.4\",\"scope\":\"user\"}": "0.1.4"
+    "{\"source\":\"npm:pi-side-chat@0.1.4\",\"scope\":\"user\"}": "0.1.4",
+    "{\"source\":\"npm:pi-subagents@0.90.0\",\"scope\":\"user\"}": "0.90.0",
+    "{\"source\":\"npm:pi-web-access@0.48.0\",\"scope\":\"user\"}": "0.48.0",
+    "{\"source\":\"npm:pi-powerline-footer@0.22.0\",\"scope\":\"user\"}": "0.22.0",
+    "{\"source\":\"npm:pi-prompt-template-model@0.12.3\",\"scope\":\"user\"}": "0.12.3",
+    "{\"source\":\"npm:pi-side-chat@0.4.0\",\"scope\":\"user\"}": "0.4.0"
   }
 }
