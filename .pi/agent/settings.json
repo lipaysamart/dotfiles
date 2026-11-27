@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.6.0",
+  "lastChangelogVersion": "1.6.1",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4.1-flash",
   "subagents": {
@@ -38,7 +38,8 @@
     "npm:@juicesharp/rpiv-ask-user-question@2.12.0",
     "npm:@juicesharp/rpiv-todo@2.12.0",
     "npm:pi-prompt-template-model@0.12.3",
-    "npm:pi-side-chat@0.4.0"
+    "npm:pi-side-chat@0.4.0",
+    "npm:pi-antigravity-acp-provider"
   ],
   "enableSkillCommands": true,
   "retry": {
@@ -58,10 +59,9 @@
   },
   "defaultThinkingLevel": "max",
   "powerline": {
-    "preset": "default",
-    "fixedEditor": false,
-    "customItems": [],
-    "mouseScroll": false
+    "workingVibes": {
+      "color": "rainbow"
+    }
   },
   "bashMode": {
     "toggleShortcut": "ctrl+shift+b",
@@ -72,7 +72,6 @@
   "workingVibeFallback": "Working",
   "workingVibeRefreshInterval": 30,
   "workingVibeMaxLength": 65,
-  "powerline": { "workingVibes": { "color": "rainbow" } },
   "workingVibeMode": "generate",
   "workingVibeModel": "opencode-go/deepseek-v4.1-flash:max",
   "workingVibePrompt": "Generate a {theme} loading message for: {task}",
@@ -81,7 +80,9 @@
     "opencode-go/glm-5.3-flash",
     "opencode-go/deepseek-v4.1-flash",
     "opencode-go/glm-5.3",
-    "opencode-go/qwen3.8-flash"
+    "opencode-go/qwen3.8-flash",
+    "antigravity-acp/gemini-4-neon",
+    "antigravity-acp/gemini-4-carbon"
   ],
   "theme": "dark",
   "hideThinkingBlock": true,
